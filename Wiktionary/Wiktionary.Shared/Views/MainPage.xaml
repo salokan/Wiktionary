@@ -6,9 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid>
+        <Button x:Name="ListeDefinitionsBouton" Content="Liste des définitions" HorizontalAlignment="Left" Margin="170,136,0,0" VerticalAlignment="Top" Height="141" Width="190" Command="{Binding Path=ListeDefinitions}"/>
+        <Button x:Name="AjouterDefinitionsBouton" Content="Ajouter une définition" HorizontalAlignment="Left" Margin="545,136,0,0" VerticalAlignment="Top" Height="141" Width="190" Command="{Binding Path=AjouterDefinitions}"/>
+        <Button x:Name="ParametreBouton" Content="Paramètres" HorizontalAlignment="Left" Margin="187,401,0,0" VerticalAlignment="Top" Height="141" Width="190" Command="{Binding Path=Parametrer}"/>
 
     </Grid>
 </Page>

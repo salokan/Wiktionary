@@ -50,8 +50,17 @@
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\AjouterDefinitions.xbf">
+      <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\ListeDefinitions.xbf">
+      <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\Parametrer.xbf">
+      <PackagePath>Views\Parametrer.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>

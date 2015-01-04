@@ -1,4 +1,8 @@
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Wiktionary.Controllers;
+using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
@@ -16,19 +20,41 @@ namespace Wiktionary.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private INavigationService _navigationService;
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(INavigationService navigationService)
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            _navigationService = navigationService;
+            ListeDefinitions = new RelayCommand(AfficherListeDefinitions);
+            AjouterDefinitions = new RelayCommand(AfficherAjoutDefinitions);
+            Parametrer = new RelayCommand(AfficherParametres);    
         }
+
+        //Naviguer sur la page de liste des définitions
+        private void AfficherListeDefinitions()
+        {
+            _navigationService.Navigate(typeof(ListeDefinitions));
+        }
+
+        public ICommand ListeDefinitions { get; set; }
+
+        //Naviguer sur la page d'ajout des définitions
+        private void AfficherAjoutDefinitions()
+        {
+            _navigationService.Navigate(typeof(AjouterDefinitions));
+        }
+
+        public ICommand AjouterDefinitions { get; set; }
+
+        //Naviguer sur la page de paramétrage
+        private void AfficherParametres()
+        {
+            _navigationService.Navigate(typeof(Parametrer));
+        }
+
+        public ICommand Parametrer { get; set; }
     }
 }

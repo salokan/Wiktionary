@@ -15,6 +15,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Wiktionary.Controllers;
 
 namespace Wiktionary.ViewModel
 {
@@ -31,17 +32,14 @@ namespace Wiktionary.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
-
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                SimpleIoc.Default.Register<INavigationService, DesignNavigationService>();
+            }
+            else
+            {
+                SimpleIoc.Default.Register<INavigationService>(() => new NavigationService());
+            }
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
