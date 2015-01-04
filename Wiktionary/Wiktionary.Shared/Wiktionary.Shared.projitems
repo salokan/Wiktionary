@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\DesignNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\NavigationService .cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Definitions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AjouterDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListeDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
@@ -35,9 +36,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Parametrer.xaml.cs">
       <DependentUpon>Parametrer.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Views\AjouterDefinitions.xaml">

@@ -25,6 +25,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="RenderTransformOrigin" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
@@ -47,6 +48,13 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
     <RootType FullName="Wiktionary.Views.Parametrer" />

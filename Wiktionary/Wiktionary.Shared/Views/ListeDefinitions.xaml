@@ -8,9 +8,14 @@
     mc:Ignorable="d"
     DataContext="{Binding ListeDefinitions, Source={StaticResource Locator}}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.508,0.501">
         <TextBlock HorizontalAlignment="Left" Margin="212,69,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="178" Width="497" FontSize="72"/>
-        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="303,601,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <ListView HorizontalAlignment="Left" Height="361" Margin="94,335,0,0" VerticalAlignment="Top" Width="494"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="107,254,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="248,251,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="390,257,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="527,252,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
