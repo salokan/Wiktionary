@@ -63,7 +63,6 @@ c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wik
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\ProjectArchitectures.txt
-C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Wiktionary.Windows.csprojResolveAssemblyReference.cache
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
