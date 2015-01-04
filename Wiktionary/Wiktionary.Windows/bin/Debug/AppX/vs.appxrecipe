@@ -20,13 +20,13 @@
     <AppXManifest Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-04T18:18:21.481</Modified>
+      <Modified>2015-01-04T18:53:03.454</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Wiktionary.Windows.exe">
       <PackagePath>Wiktionary.Windows.exe</PackagePath>
-      <Modified>2015-01-04T18:18:18.307</Modified>
+      <Modified>2015-01-04T18:53:02.430</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -66,31 +66,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-01-04T18:18:17.556</Modified>
+      <Modified>2015-01-04T18:53:01.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\AjouterDefinitions.xbf">
       <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
-      <Modified>2015-01-04T18:18:17.557</Modified>
+      <Modified>2015-01-04T18:53:01.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\ListeDefinitions.xbf">
       <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
-      <Modified>2015-01-04T18:18:17.557</Modified>
+      <Modified>2015-01-04T18:53:01.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2015-01-04T18:18:17.558</Modified>
+      <Modified>2015-01-04T18:53:01.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Views\Parametrer.xbf">
       <PackagePath>Views\Parametrer.xbf</PackagePath>
-      <Modified>2015-01-04T18:18:17.559</Modified>
+      <Modified>2015-01-04T18:53:01.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>
-      <Modified>2015-01-04T18:18:16.922</Modified>
+      <Modified>2015-01-04T18:45:49.748</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-01-04T18:18:20.613</Modified>
+      <Modified>2015-01-04T18:53:02.978</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

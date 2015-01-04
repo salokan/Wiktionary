@@ -50,10 +50,38 @@ namespace Wiktionary.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
-        public static void Cleanup()
+
+        public ListeDefinitionsViewModel ListeDefinitions
         {
-            // TODO Clear the ViewModels
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ListeDefinitionsViewModel>();
+            }
+        }
+
+        public AjouterDefinitionsViewModel AjouterDefinitions
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AjouterDefinitionsViewModel>();
+            }
+        }
+
+        public ParametrerViewModel Parametrer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ParametrerViewModel>();
+            }
+        }
+
+         static ViewModelLocator()
+        {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ListeDefinitionsViewModel>();
+            SimpleIoc.Default.Register<AjouterDefinitionsViewModel>();
+            SimpleIoc.Default.Register<ParametrerViewModel>();
         }
     }
 }

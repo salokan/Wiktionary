@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\wiktionary\wiktionary.windows\obj\debug\intermediatexaml\wiktionary.windows.exe" HashGuid="18086ce1-c57d-7e57-5715-6db0474b96f6" />
+    <LocalAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\wiktionary\wiktionary.windows\obj\debug\intermediatexaml\wiktionary.windows.exe" HashGuid="16c21038-7e28-ee05-cec8-9b1e1a45d372" />
     <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.dll" HashGuid="da07be64-1093-25cd-c992-377d44b6dd02" />
     <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.extras.dll" HashGuid="28bb2089-c7a4-73bb-7a72-1ea8b02698b0" />
     <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.platform.dll" HashGuid="54c1f1ed-b921-337f-8ad6-f2d8c553df06" />

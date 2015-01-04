@@ -18,7 +18,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\DesignNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\NavigationService .cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AjouterDefinitionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListeDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ParametrerViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AjouterDefinitions.xaml.cs">
       <DependentUpon>AjouterDefinitions.xaml</DependentUpon>

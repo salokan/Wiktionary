@@ -48,14 +48,6 @@ c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wik
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Wiktionary.Windows.pdb
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\en-US\Microsoft.Practices.ServiceLocation.Properties.Resources.resw
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Wiktionary.Windows.csproj.GenerateResource.Cache
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
-c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation.pri
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\qualifiers.txt
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\priconfig.xml
@@ -71,3 +63,11 @@ c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wik
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\ProjectArchitectures.txt
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
+c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate
