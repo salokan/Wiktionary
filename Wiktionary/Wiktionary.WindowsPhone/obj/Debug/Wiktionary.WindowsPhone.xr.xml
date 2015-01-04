@@ -4,6 +4,14 @@
     <RootPropertyPathName Name="AjouterDefinitions" />
     <RootPropertyPathName Name="Retour" />
     <RootPropertyPathName Name="ListeDefinitions" />
+    <RootPropertyPathName Name="Definitions" />
+    <RootPropertyPathName Name="Definition" />
+    <RootPropertyPathName Name="Mot" />
+    <RootPropertyPathName Name="TypeDefinitions" />
+    <RootPropertyPathName Name="Publiques" />
+    <RootPropertyPathName Name="Roaming" />
+    <RootPropertyPathName Name="Locales" />
+    <RootPropertyPathName Name="Toutes" />
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
   </Roots.PropertyPathNames>
@@ -25,6 +33,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="RenderTransformOrigin" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
@@ -47,6 +56,22 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Height" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
     <RootType FullName="Wiktionary.Views.Parametrer" />

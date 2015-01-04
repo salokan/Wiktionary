@@ -9,14 +9,25 @@
     DataContext="{Binding ListeDefinitions, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.508,0.501">
-        <TextBlock HorizontalAlignment="Left" Margin="212,69,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="178" Width="497" FontSize="72"/>
-        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
-        <ListView HorizontalAlignment="Left" Height="361" Margin="94,335,0,0" VerticalAlignment="Top" Width="494"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="107,254,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="248,251,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="390,257,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="527,252,0,0" VerticalAlignment="Top"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="110,30,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="102" Width="666" FontSize="72"/>
+        <Button Content="Toutes" HorizontalAlignment="Left" Margin="107,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Toutes}"/>
+        <Button Content="Locales" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Locales}"/>
+        <Button Content="Roaming" HorizontalAlignment="Left" Margin="388,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"/>
+        <Button Content="Publiques" HorizontalAlignment="Left" Margin="544,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Publiques}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="333,235,0,0" TextWrapping="Wrap" Text="{Binding Path=TypeDefinitions}" VerticalAlignment="Top" Height="25" Width="73"/>
+        <StackPanel HorizontalAlignment="Left" Height="368" Margin="110,329,0,0" VerticalAlignment="Top" Width="472">
+            <ListView Height="367" ItemsSource="{Binding Path=Definitions}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="125" Width="468">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Mot}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Definition}" Height="102"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
     </Grid>
 </Page>
 
