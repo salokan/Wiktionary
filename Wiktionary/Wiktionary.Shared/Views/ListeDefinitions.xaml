@@ -16,7 +16,7 @@
         <Button Content="Publiques" HorizontalAlignment="Left" Margin="544,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Publiques}"/>
         <TextBlock HorizontalAlignment="Left" Margin="333,235,0,0" TextWrapping="Wrap" Text="{Binding Path=TypeDefinitions}" VerticalAlignment="Top" Height="25" Width="73"/>
         <StackPanel HorizontalAlignment="Left" Height="368" Margin="110,329,0,0" VerticalAlignment="Top" Width="472">
-            <ListView Height="367" ItemsSource="{Binding Path=Definitions}">
+            <ListView Height="367" ItemsSource="{Binding Path=Definitions}" SelectedItem="{Binding Path=MotSelectionne, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="125" Width="468">
@@ -27,6 +27,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="144,723,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.612,0.289" Command="{Binding Path=Supprimer}"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="388,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
     </Grid>
 </Page>

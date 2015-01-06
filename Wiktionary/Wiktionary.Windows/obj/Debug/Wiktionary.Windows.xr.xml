@@ -9,7 +9,9 @@
     <RootPropertyPathName Name="Definition" />
     <RootPropertyPathName Name="Mot" />
     <RootPropertyPathName Name="ListeDefinitions" />
+    <RootPropertyPathName Name="Supprimer" />
     <RootPropertyPathName Name="Definitions" />
+    <RootPropertyPathName Name="MotSelectionne" />
     <RootPropertyPathName Name="TypeDefinitions" />
     <RootPropertyPathName Name="Publiques" />
     <RootPropertyPathName Name="Locales" />
@@ -17,9 +19,7 @@
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
     <RootPropertyPathName Name="RechercherDefinition" />
-    <RootPropertyPathName Name="Supprimer" />
     <RootPropertyPathName Name="DefinitionsRecherchees" />
-    <RootPropertyPathName Name="MotSelectionne" />
     <RootPropertyPathName Name="Rechercher" />
     <RootPropertyPathName Name="MotRecherche" />
   </Roots.PropertyPathNames>
@@ -70,9 +70,9 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Command" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="RenderTransformOrigin" />
     </RootType>
     <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
@@ -86,8 +86,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Height" />
       <RootProperty Name="ItemsSource" />
-      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="SelectedItem" />
+      <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />

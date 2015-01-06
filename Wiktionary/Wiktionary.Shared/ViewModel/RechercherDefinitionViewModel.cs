@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Wiktionary.Controllers;
@@ -63,8 +64,11 @@ namespace Wiktionary.ViewModel
 
             DefinitionsRecherchees = definitionsRecherchees;
 
+            //Bouton Rechercher
             Rechercher = new RelayCommand(RechercherDefinition);
+            //Bouton Supprimer
             Supprimer = new RelayCommand(SupprimerDefinition);
+            //Bouton Retour
             Retour = new RelayCommand(AfficherPagePrecedente);
         }
 
@@ -128,24 +132,39 @@ namespace Wiktionary.ViewModel
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
         {
-            Definitions definitionASupprimer = new Definitions();
-            bool aSupprimer = false;
             if (motSelectionne != null)
             {
-                foreach (Definitions d in toutesDefinitions)
-                    if (d.Mot.Equals(motSelectionne.Mot) && d.Definition.Equals(motSelectionne.Definition) && d.TypeDefinition.Equals(motSelectionne.TypeDefinition))
-                    {
-                        definitionASupprimer = d;
-                        aSupprimer = true;
-                    }
+                MessageDialog msgDialog =
+                    new MessageDialog("Etes-vous sûr de vouloir supprimer la définition sélectionnée?",
+                        "Demande de confirmation");
+                msgDialog.Commands.Add(new UICommand("Yes", (command) =>
+                                                            {
+                                                                Definitions definitionASupprimer = new Definitions();
+                                                                bool aSupprimer = false;
 
-                if (aSupprimer)
+                                                                foreach (Definitions d in toutesDefinitions)
+                                                                    if (d.Mot.Equals(motSelectionne.Mot) &&
+                                                                        d.Definition.Equals(motSelectionne.Definition) &&
+                                                                        d.TypeDefinition.Equals(
+                                                                            motSelectionne.TypeDefinition))
+                                                                    {
+                                                                        definitionASupprimer = d;
+                                                                        aSupprimer = true;
+                                                                    }
+
+                                                                if (aSupprimer)
+                                                                {
+                                                                    toutesDefinitions.Remove(definitionASupprimer);
+                                                                    definitionsRecherchees.Remove(definitionASupprimer);
+                                                                }
+
+                                                                DefinitionsRecherchees = definitionsRecherchees;
+                                                            }));
+                msgDialog.Commands.Add(new UICommand("No", (command) =>
                 {
-                    toutesDefinitions.Remove(definitionASupprimer);
-                    definitionsRecherchees.Remove(definitionASupprimer);
-                }
-                
-                DefinitionsRecherchees = definitionsRecherchees;
+
+                }));
+                msgDialog.ShowAsync();
             }
         }
 
