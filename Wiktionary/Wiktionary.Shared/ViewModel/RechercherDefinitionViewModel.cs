@@ -19,7 +19,7 @@ namespace Wiktionary.ViewModel
         public ICommand Retour { get; set; } //Bouton Retour
 
         private string motRecherche;
-        public string MotRecherche//TextBox du mot dont on veut trouver la définition
+        public string MotRecherche //TextBox du mot dont on veut trouver la définition
         {
             get
             {
@@ -37,7 +37,7 @@ namespace Wiktionary.ViewModel
         }
 
         private Definitions motSelectionne;
-        public Definitions MotSelectionne//Valeur du mot sélectionné
+        public Definitions MotSelectionne //Valeur du mot sélectionné dans la liste
         {
             get
             {

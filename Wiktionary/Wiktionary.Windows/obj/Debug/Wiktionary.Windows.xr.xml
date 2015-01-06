@@ -3,13 +3,15 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="AjouterDefinitions" />
     <RootPropertyPathName Name="Retour" />
-    <RootPropertyPathName Name="ListeDefinitions" />
-    <RootPropertyPathName Name="Definitions" />
+    <RootPropertyPathName Name="Publique" />
+    <RootPropertyPathName Name="Roaming" />
+    <RootPropertyPathName Name="Locale" />
     <RootPropertyPathName Name="Definition" />
     <RootPropertyPathName Name="Mot" />
+    <RootPropertyPathName Name="ListeDefinitions" />
+    <RootPropertyPathName Name="Definitions" />
     <RootPropertyPathName Name="TypeDefinitions" />
     <RootPropertyPathName Name="Publiques" />
-    <RootPropertyPathName Name="Roaming" />
     <RootPropertyPathName Name="Locales" />
     <RootPropertyPathName Name="Toutes" />
     <RootPropertyPathName Name="Main" />
@@ -53,6 +55,15 @@
       <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
@@ -84,14 +95,6 @@
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Text" />
-    </RootType>
     <RootType FullName="Wiktionary.Views.RechercherDefinition" />
   </Roots.RootTypes>
 </Roots>
