@@ -43,6 +43,25 @@ namespace Wiktionary.Models
 
         }
 
+        private string _typeDefinition;
+        public string TypeDefinition
+        {
+            get
+            {
+                return _typeDefinition;
+            }
+
+            set
+            {
+                if (_typeDefinition != value)
+                {
+                    _typeDefinition = value;
+                    OnPropertyChanged("TypeDefinition");
+                }
+            }
+
+        }
+
         public void OnPropertyChanged(string property)
         {
             if (PropertyChanged != null)

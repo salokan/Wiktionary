@@ -76,25 +76,26 @@ namespace Wiktionary.ViewModel
             ObservableCollection<Definitions> definitionsPubliques = new ObservableCollection<Definitions>();
 
             //Définitions locales
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa" });
-            definitionsLocales.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb" });
-            definitionsLocales.Add(new Definitions { Mot = "c", Definition = "cccccccccccc" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "dddddddddddd" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "eeeeeeeeeeee" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "ffffffffffff" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "gggggggggggg" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "c", Definition = "cccccccccccc", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "dddddddddddd", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "eeeeeeeeeeee", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "ffffffffffff", TypeDefinition = "locale" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "gggggggggggg", TypeDefinition = "locale" });
 
             //Définitions roaming
-            definitionsRoaming.Add(new Definitions { Mot = "d", Definition = "dddddddddddd" });
-            definitionsRoaming.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee" });
-            definitionsRoaming.Add(new Definitions { Mot = "f", Definition = "ffffffffffff" });
-            definitionsRoaming.Add(new Definitions { Mot = "g", Definition = "gggggggggggg" });
+            definitionsRoaming.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
+            definitionsRoaming.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
+            definitionsRoaming.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
+            definitionsRoaming.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             //Définitions publiques
-            definitionsPubliques.Add(new Definitions { Mot = "a", Definition = "hhhhhhhhhhhh" });
-            definitionsPubliques.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh" });
-            definitionsPubliques.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii" });
-            definitionsPubliques.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj" });
+            definitionsPubliques.Add(new Definitions { Mot = "a", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
+            definitionsPubliques.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa", TypeDefinition = "publique" });
+            definitionsPubliques.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
+            definitionsPubliques.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
+            definitionsPubliques.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
 
             //Toutes définitions
             foreach (Definitions dLocales in definitionsLocales)
@@ -132,7 +133,7 @@ namespace Wiktionary.ViewModel
             if (motSelectionne != null)
             {
                 foreach (Definitions d in toutesDefinitions)
-                    if (d.Mot.Equals(motSelectionne.Mot) && d.Definition.Equals(motSelectionne.Definition))
+                    if (d.Mot.Equals(motSelectionne.Mot) && d.Definition.Equals(motSelectionne.Definition) && d.TypeDefinition.Equals(motSelectionne.TypeDefinition))
                     {
                         definitionASupprimer = d;
                         aSupprimer = true;

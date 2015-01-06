@@ -99,9 +99,9 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa" });
-            definitions.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb" });
-            definitions.Add(new Definitions { Mot = "c", Definition = "cccccccccccc" });
+            definitions.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa", TypeDefinition = "locale" });
+            definitions.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb", TypeDefinition = "locale" });
+            definitions.Add(new Definitions { Mot = "c", Definition = "cccccccccccc", TypeDefinition = "locale" });
 
             Definitions = definitions;
         }
@@ -113,10 +113,10 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg" });
+            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             Definitions = definitions;
         }
@@ -128,9 +128,9 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj" });
+            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
 
             Definitions = definitions;
         }
