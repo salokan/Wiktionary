@@ -15,7 +15,9 @@
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
     <RootPropertyPathName Name="RechercherDefinition" />
+    <RootPropertyPathName Name="Supprimer" />
     <RootPropertyPathName Name="DefinitionsRecherchees" />
+    <RootPropertyPathName Name="MotSelectionne" />
     <RootPropertyPathName Name="Rechercher" />
     <RootPropertyPathName Name="MotRecherche" />
   </Roots.PropertyPathNames>
@@ -74,6 +76,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="SelectedItem" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />

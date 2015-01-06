@@ -15,6 +15,7 @@ namespace Wiktionary.ViewModel
         private ObservableCollection<Definitions> definitionsRecherchees = new ObservableCollection<Definitions>();
         private ObservableCollection<Definitions> toutesDefinitions = new ObservableCollection<Definitions>(); //Liste contenant toutes les définitions
         public ICommand Rechercher { get; set; } //Bouton Rechercher
+        public ICommand Supprimer { get; set; } //Bouton Supprimer
         public ICommand Retour { get; set; } //Bouton Retour
 
         private string motRecherche;
@@ -35,6 +36,24 @@ namespace Wiktionary.ViewModel
             }
         }
 
+        private Definitions motSelectionne;
+        public Definitions MotSelectionne//Valeur du mot sélectionné
+        {
+            get
+            {
+                return motSelectionne;
+            }
+
+            set
+            {
+                if (motSelectionne != value)
+                {
+                    motSelectionne = value;
+                    RaisePropertyChanged("MotSelectionne");
+                }
+            }
+        }
+
         //Constructeur
         public RechercherDefinitionViewModel(INavigationService navigationService)
         {
@@ -45,26 +64,8 @@ namespace Wiktionary.ViewModel
             DefinitionsRecherchees = definitionsRecherchees;
 
             Rechercher = new RelayCommand(RechercherDefinition);
+            Supprimer = new RelayCommand(SupprimerDefinition);
             Retour = new RelayCommand(AfficherPagePrecedente);
-        }
-
-        //Rechercher une définition
-        private void RechercherDefinition()
-        {
-            definitionsRecherchees.Clear();
-            foreach (Definitions d in toutesDefinitions)
-            {
-                if (d.Mot.Equals(motRecherche))
-                    definitionsRecherchees.Add(d);
-            }
-
-            DefinitionsRecherchees = definitionsRecherchees;
-        }  
-
-        //Naviguer sur la page précédente
-        private void AfficherPagePrecedente()
-        {
-            _navigationService.GoBack();
         }
 
         //Permet de récupérer toutes les définitions et de les insérer dans une même liste
@@ -78,6 +79,10 @@ namespace Wiktionary.ViewModel
             definitionsLocales.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa" });
             definitionsLocales.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb" });
             definitionsLocales.Add(new Definitions { Mot = "c", Definition = "cccccccccccc" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "dddddddddddd" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "eeeeeeeeeeee" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "ffffffffffff" });
+            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "gggggggggggg" });
 
             //Définitions roaming
             definitionsRoaming.Add(new Definitions { Mot = "d", Definition = "dddddddddddd" });
@@ -104,6 +109,49 @@ namespace Wiktionary.ViewModel
             {
                 toutesDefinitions.Add(dPubliques);
             }
+        }
+
+        //Rechercher une définition
+        private void RechercherDefinition()
+        {
+            definitionsRecherchees.Clear();
+            foreach (Definitions d in toutesDefinitions)
+            {
+                if (d.Mot.Equals(motRecherche))
+                    definitionsRecherchees.Add(d);
+            }
+
+            DefinitionsRecherchees = definitionsRecherchees;
+        }  
+
+        //Supprimer la définition sélectionnée
+        private void SupprimerDefinition()
+        {
+            Definitions definitionASupprimer = new Definitions();
+            bool aSupprimer = false;
+            if (motSelectionne != null)
+            {
+                foreach (Definitions d in toutesDefinitions)
+                    if (d.Mot.Equals(motSelectionne.Mot) && d.Definition.Equals(motSelectionne.Definition))
+                    {
+                        definitionASupprimer = d;
+                        aSupprimer = true;
+                    }
+
+                if (aSupprimer)
+                {
+                    toutesDefinitions.Remove(definitionASupprimer);
+                    definitionsRecherchees.Remove(definitionASupprimer);
+                }
+                
+                DefinitionsRecherchees = definitionsRecherchees;
+            }
+        }
+
+        //Naviguer sur la page précédente
+        private void AfficherPagePrecedente()
+        {
+            _navigationService.GoBack();
         }
     }
 }

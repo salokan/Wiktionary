@@ -14,7 +14,7 @@
         <TextBox HorizontalAlignment="Left" Margin="110,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Text="{Binding Path=MotRecherche, Mode=TwoWay}"/>
         <Button Content="Rechercher" HorizontalAlignment="Left" Margin="489,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.095" Width="134" Command="{Binding Path=Rechercher}"/>
         <StackPanel HorizontalAlignment="Left" Height="368" Margin="110,329,0,0" VerticalAlignment="Top" Width="472">
-            <ListView Height="367" ItemsSource="{Binding Path=DefinitionsRecherchees}">
+            <ListView Height="367" ItemsSource="{Binding Path=DefinitionsRecherchees}" SelectedItem="{Binding Path=MotSelectionne, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="125" Width="468">
@@ -25,7 +25,8 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="230,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Supprimer}"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="386,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>      
     </Grid>
 </Page>
 
