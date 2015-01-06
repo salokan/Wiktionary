@@ -9,7 +9,7 @@
     DataContext="{Binding ListeDefinitions, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.508,0.501">
-        <TextBlock HorizontalAlignment="Left" Margin="110,30,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="102" Width="666" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,31,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="102" Width="666" FontSize="72"/>
         <Button Content="Toutes" HorizontalAlignment="Left" Margin="107,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Toutes}"/>
         <Button Content="Locales" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Locales}"/>
         <Button Content="Roaming" HorizontalAlignment="Left" Margin="388,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"/>

@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Wiktionary.Views.RechercherDefinition"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wiktionary.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding RechercherDefinition, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="32,30,0,0" TextWrapping="Wrap" Text="Rechercher une définition" VerticalAlignment="Top" Height="178" Width="524" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Left" Margin="110,213,0,0" TextWrapping="Wrap" Text="Saisir le mot dont vous souhaitez obtenir la définition" VerticalAlignment="Top" Height="35" Width="352" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="110,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Text="{Binding Path=MotRecherche, Mode=TwoWay}"/>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="489,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.095" Width="134" Command="{Binding Path=Rechercher}"/>
+        <StackPanel HorizontalAlignment="Left" Height="368" Margin="110,329,0,0" VerticalAlignment="Top" Width="472">
+            <ListView Height="367" ItemsSource="{Binding Path=DefinitionsRecherchees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="125" Width="468">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Mot}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Definition}" Height="102"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+    </Grid>
+</Page>

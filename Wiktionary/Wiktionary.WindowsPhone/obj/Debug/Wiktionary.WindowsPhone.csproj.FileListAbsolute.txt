@@ -72,3 +72,8 @@ c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wik
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 c:\users\nicolas\documents\visual studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\ProjectArchitectures.txt
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\Wiktionary.WindowsPhone.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\bin\Debug\Views\RechercherDefinition.xbf
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\Views\RechercherDefinition.g.i.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\Views\RechercherDefinition.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\Views\RechercherDefinition.xaml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\Debug\Views\RechercherDefinition.xbf

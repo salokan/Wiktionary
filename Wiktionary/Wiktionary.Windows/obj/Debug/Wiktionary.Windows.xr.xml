@@ -14,6 +14,10 @@
     <RootPropertyPathName Name="Toutes" />
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
+    <RootPropertyPathName Name="RechercherDefinition" />
+    <RootPropertyPathName Name="DefinitionsRecherchees" />
+    <RootPropertyPathName Name="Rechercher" />
+    <RootPropertyPathName Name="MotRecherche" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -28,6 +32,7 @@
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Source" />
       <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
@@ -54,6 +59,7 @@
       <RootProperty Name="Command" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransformOrigin" />
     </RootType>
     <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
@@ -75,5 +81,14 @@
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Wiktionary.Views.RechercherDefinition" />
   </Roots.RootTypes>
 </Roots>

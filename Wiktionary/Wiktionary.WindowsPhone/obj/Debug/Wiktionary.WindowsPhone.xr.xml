@@ -14,6 +14,7 @@
     <RootPropertyPathName Name="Toutes" />
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
+    <RootPropertyPathName Name="RechercherDefinition" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -75,5 +76,6 @@
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
+    <RootType FullName="Wiktionary.Views.RechercherDefinition" />
   </Roots.RootTypes>
 </Roots>
