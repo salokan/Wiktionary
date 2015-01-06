@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Wiktionary.Views.RechercherDefinition"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wiktionary.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding RechercherDefinition, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="110,30,0,0" TextWrapping="Wrap" Text="Rechercher une définition" VerticalAlignment="Top" Height="102" Width="832" FontSize="72"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+
+    </Grid>
+</Page>
+
