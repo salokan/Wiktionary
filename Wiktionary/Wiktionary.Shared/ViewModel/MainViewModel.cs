@@ -28,9 +28,17 @@ namespace Wiktionary.ViewModel
         public MainViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+
+            //Bouton Rechercher
             RechercherDefinition = new RelayCommand(AfficherRechercherDefinition);
+
+            //Bouton Liste
             ListeDefinitions = new RelayCommand(AfficherListeDefinitions);
+
+            //Bouton Ajouter
             AjouterDefinitions = new RelayCommand(AfficherAjoutDefinitions);
+
+            //Bouton Paramétrer
             Parametrer = new RelayCommand(AfficherParametres);    
         }
 

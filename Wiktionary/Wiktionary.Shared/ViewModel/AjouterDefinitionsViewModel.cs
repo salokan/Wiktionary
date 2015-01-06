@@ -56,9 +56,16 @@ namespace Wiktionary.ViewModel
         {
             _navigationService = navigationService;
 
+            //Bouton Locale
             Locale = new RelayCommand(AjouterLocale);
+
+            //Bouton Roaming
             Roaming = new RelayCommand(AjouterRoaming);
+
+            //Bouton Publique
             Publique = new RelayCommand(AjouterPublique);
+
+            //Bouton Retour
             Retour = new RelayCommand(AfficherPagePrecedente);
         }
 

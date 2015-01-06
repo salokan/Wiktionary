@@ -19,6 +19,8 @@
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
     <RootPropertyPathName Name="RechercherDefinition" />
+    <RootPropertyPathName Name="Modifier" />
+    <RootPropertyPathName Name="Username" />
     <RootPropertyPathName Name="DefinitionsRecherchees" />
     <RootPropertyPathName Name="Rechercher" />
     <RootPropertyPathName Name="MotRecherche" />
