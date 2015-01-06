@@ -51,6 +51,14 @@ namespace Wiktionary.ViewModel
             }
         }
 
+        public RechercherDefinitionViewModel RechercherDefinition
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<RechercherDefinitionViewModel>();
+            }
+        }
+
         public ListeDefinitionsViewModel ListeDefinitions
         {
             get
@@ -79,6 +87,7 @@ namespace Wiktionary.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<RechercherDefinitionViewModel>();
             SimpleIoc.Default.Register<ListeDefinitionsViewModel>();
             SimpleIoc.Default.Register<AjouterDefinitionsViewModel>();
             SimpleIoc.Default.Register<ParametrerViewModel>();

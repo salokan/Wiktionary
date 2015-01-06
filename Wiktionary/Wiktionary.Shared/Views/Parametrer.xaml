@@ -9,8 +9,12 @@
     DataContext="{Binding Parametrer, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="207,129,0,0" TextWrapping="Wrap" Text="Paramètres" VerticalAlignment="Top" FontSize="72"/>
-        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="312,539,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="182,136,0,0" TextWrapping="Wrap" Text="Paramètres" VerticalAlignment="Top" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Left" Margin="108,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Text="Username"/>
+        <TextBox HorizontalAlignment="Left" Margin="222,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Text="{Binding Path=Username, Mode=TwoWay}"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="512,301,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
+        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="306,435,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+
 
     </Grid>
 </Page>

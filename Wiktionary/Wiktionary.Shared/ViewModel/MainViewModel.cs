@@ -28,10 +28,27 @@ namespace Wiktionary.ViewModel
         public MainViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+
+            //Bouton Rechercher
+            RechercherDefinition = new RelayCommand(AfficherRechercherDefinition);
+
+            //Bouton Liste
             ListeDefinitions = new RelayCommand(AfficherListeDefinitions);
+
+            //Bouton Ajouter
             AjouterDefinitions = new RelayCommand(AfficherAjoutDefinitions);
+
+            //Bouton Paramétrer
             Parametrer = new RelayCommand(AfficherParametres);    
         }
+
+        //Naviguer sur la page de recherche des définitions
+        private void AfficherRechercherDefinition()
+        {
+            _navigationService.Navigate(typeof(RechercherDefinition));
+        }
+
+        public ICommand RechercherDefinition { get; set; }
 
         //Naviguer sur la page de liste des définitions
         private void AfficherListeDefinitions()

@@ -9,14 +9,14 @@
     DataContext="{Binding ListeDefinitions, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.508,0.501">
-        <TextBlock HorizontalAlignment="Left" Margin="110,30,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="102" Width="666" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,31,0,0" TextWrapping="Wrap" Text="Liste des définitions" VerticalAlignment="Top" Height="102" Width="666" FontSize="72"/>
         <Button Content="Toutes" HorizontalAlignment="Left" Margin="107,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Toutes}"/>
         <Button Content="Locales" HorizontalAlignment="Left" Margin="247,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Locales}"/>
         <Button Content="Roaming" HorizontalAlignment="Left" Margin="388,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"/>
         <Button Content="Publiques" HorizontalAlignment="Left" Margin="544,160,0,0" VerticalAlignment="Top" Command="{Binding Path=Publiques}"/>
         <TextBlock HorizontalAlignment="Left" Margin="333,235,0,0" TextWrapping="Wrap" Text="{Binding Path=TypeDefinitions}" VerticalAlignment="Top" Height="25" Width="73"/>
         <StackPanel HorizontalAlignment="Left" Height="368" Margin="110,329,0,0" VerticalAlignment="Top" Width="472">
-            <ListView Height="367" ItemsSource="{Binding Path=Definitions}">
+            <ListView Height="367" ItemsSource="{Binding Path=Definitions}" SelectedItem="{Binding Path=MotSelectionne, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="125" Width="468">
@@ -27,7 +27,8 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="285,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="144,723,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.612,0.289" Command="{Binding Path=Supprimer}"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="388,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
     </Grid>
 </Page>
 
