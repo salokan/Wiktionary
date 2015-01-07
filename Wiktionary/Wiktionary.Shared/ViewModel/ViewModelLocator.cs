@@ -83,6 +83,14 @@ namespace Wiktionary.ViewModel
             }
         }
 
+        public ModifierDefinitionsViewModel ModifierDefinitions
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ModifierDefinitionsViewModel>();
+            }
+        }
+
          static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -91,6 +99,7 @@ namespace Wiktionary.ViewModel
             SimpleIoc.Default.Register<ListeDefinitionsViewModel>();
             SimpleIoc.Default.Register<AjouterDefinitionsViewModel>();
             SimpleIoc.Default.Register<ParametrerViewModel>();
+            SimpleIoc.Default.Register<ModifierDefinitionsViewModel>();
         }
     }
 }

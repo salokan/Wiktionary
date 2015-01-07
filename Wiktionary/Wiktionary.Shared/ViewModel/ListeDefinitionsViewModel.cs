@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Wiktionary.Controllers;
 using Wiktionary.Models;
+using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
@@ -19,6 +19,7 @@ namespace Wiktionary.ViewModel
         public ICommand Roaming { get; set; } //Bouton Roaming
         public ICommand Publiques { get; set; } //Bouton Publiques
         public ICommand Supprimer { get; set; } //Bouton Supprimer
+        public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
         private string typeDefinitions;
@@ -88,6 +89,8 @@ namespace Wiktionary.ViewModel
             Publiques = new RelayCommand(DefinitionsPubliques);
             //Bouton Supprimer
             Supprimer = new RelayCommand(SupprimerDefinition);
+            //Bouton Modifier
+            Modifier = new RelayCommand(AfficherModifierDefinition);
             //Bouton Retour
             Retour = new RelayCommand(AfficherPagePrecedente);
         }
@@ -158,6 +161,16 @@ namespace Wiktionary.ViewModel
             Definitions = definitions;
         }
 
+        //Naviguer sur la page Modifier
+        private void AfficherModifierDefinition()
+        {
+            if (motSelectionne != null)
+            {
+                _navigationService.Navigate(typeof(ModifierDefinitions), motSelectionne);
+            }
+            
+        } 
+
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
         {
@@ -200,8 +213,6 @@ namespace Wiktionary.ViewModel
         private void AfficherPagePrecedente()
         {
             _navigationService.GoBack();
-        }
-
-        
+        }  
     }
 }

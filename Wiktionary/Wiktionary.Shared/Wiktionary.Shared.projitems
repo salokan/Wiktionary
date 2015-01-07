@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AjouterDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListeDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ModifierDefinitionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ParametrerViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\RechercherDefinitionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
@@ -33,6 +34,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ModifierDefinitions.xaml.cs">
+      <DependentUpon>ModifierDefinitions.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Parametrer.xaml.cs">
       <DependentUpon>Parametrer.xaml</DependentUpon>
@@ -51,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\ModifierDefinitions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
