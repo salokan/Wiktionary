@@ -10,6 +10,7 @@
     <RootPropertyPathName Name="Mot" />
     <RootPropertyPathName Name="ListeDefinitions" />
     <RootPropertyPathName Name="Supprimer" />
+    <RootPropertyPathName Name="Modifier" />
     <RootPropertyPathName Name="Definitions" />
     <RootPropertyPathName Name="MotSelectionne" />
     <RootPropertyPathName Name="TypeDefinitions" />
@@ -19,7 +20,9 @@
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="Parametrer" />
     <RootPropertyPathName Name="RechercherDefinition" />
-    <RootPropertyPathName Name="Modifier" />
+    <RootPropertyPathName Name="ModifierDefinitions" />
+    <RootPropertyPathName Name="DefinitionAModifier" />
+    <RootPropertyPathName Name="MotAModifier" />
     <RootPropertyPathName Name="Username" />
     <RootPropertyPathName Name="DefinitionsRecherchees" />
     <RootPropertyPathName Name="Rechercher" />
@@ -96,6 +99,7 @@
     </RootType>
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
     <RootType FullName="Wiktionary.MainPage" />
+    <RootType FullName="Wiktionary.Views.ModifierDefinitions" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
     <RootType FullName="Wiktionary.Views.RechercherDefinition" />
   </Roots.RootTypes>

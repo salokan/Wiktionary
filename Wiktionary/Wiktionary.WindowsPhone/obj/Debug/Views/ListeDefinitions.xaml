@@ -27,8 +27,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="144,723,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.612,0.289" Command="{Binding Path=Supprimer}"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="388,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="74,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="226,723,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.612,0.289" Command="{Binding Path=Supprimer}"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="388,723,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>      
     </Grid>
 </Page>
 

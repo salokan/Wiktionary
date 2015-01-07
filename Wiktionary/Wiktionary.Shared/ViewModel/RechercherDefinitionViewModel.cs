@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Wiktionary.Controllers;
 using Wiktionary.Models;
+using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
@@ -17,6 +18,7 @@ namespace Wiktionary.ViewModel
         private ObservableCollection<Definitions> toutesDefinitions = new ObservableCollection<Definitions>(); //Liste contenant toutes les définitions
         public ICommand Rechercher { get; set; } //Bouton Rechercher
         public ICommand Supprimer { get; set; } //Bouton Supprimer
+        public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
         private string motRecherche;
@@ -66,6 +68,8 @@ namespace Wiktionary.ViewModel
 
             //Bouton Rechercher
             Rechercher = new RelayCommand(RechercherDefinition);
+            //Bouton Modifier
+            Modifier = new RelayCommand(AfficherModifierDefinition);
             //Bouton Supprimer
             Supprimer = new RelayCommand(SupprimerDefinition);
             //Bouton Retour
@@ -127,7 +131,17 @@ namespace Wiktionary.ViewModel
             }
 
             DefinitionsRecherchees = definitionsRecherchees;
-        }  
+        }
+
+        //Naviguer sur la page Modifier
+        private void AfficherModifierDefinition()
+        {
+            if (motSelectionne != null)
+            {
+                _navigationService.Navigate(typeof(ModifierDefinitions), motSelectionne);
+            }
+
+        } 
 
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
