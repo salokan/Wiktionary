@@ -14,7 +14,7 @@ using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
-    public class ListeDefinitionsViewModel : ViewModelBase
+    public class ListeDefinitionsViewModel : ViewModelBase, IViewModel
     {
         private readonly INavigationService _navigationService;
         public ObservableCollection<Definitions> Definitions { get; set; } //Liste des définitions à afficher
@@ -26,6 +26,8 @@ namespace Wiktionary.ViewModel
         public ICommand Supprimer { get; set; } //Bouton Supprimer
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
+
+        public bool isBack = false;
 
         private string typeDefinitions;
         public string TypeDefinitions//TextBlock des définitions affichés
@@ -66,22 +68,9 @@ namespace Wiktionary.ViewModel
         //Constructeur
         public ListeDefinitionsViewModel(INavigationService navigationService)
         {
-            GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
-
             _navigationService = navigationService;
 
-            TypeDefinitions = "Toutes";
-            
-            //Liste des définitions à afficher
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
-
-            Definitions = definitions;
+            initListe();
 
             //Bouton Toutes
             Toutes = new RelayCommand(ToutesDefinitions);
@@ -99,7 +88,25 @@ namespace Wiktionary.ViewModel
             Retour = new RelayCommand(AfficherPagePrecedente);
         }
 
+        //Initialise la liste des définition
+        private void initListe()
+        {
+            TypeDefinitions = "Toutes";
 
+            definitions.Clear();
+
+            GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            //Liste des définitions à afficher
+            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
+            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
+
+            Definitions = definitions;
+        }
 
         //Afficher toutes les définitions
         private void ToutesDefinitions()
@@ -228,6 +235,8 @@ namespace Wiktionary.ViewModel
         //Naviguer sur la page précédente
         private void AfficherPagePrecedente()
         {
+            initListe();
+
             _navigationService.GoBack();
         }
 
@@ -269,6 +278,18 @@ namespace Wiktionary.ViewModel
         {
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");
             msgDialog.ShowAsync();
+        }
+
+        //Récupère le paramètre contenant la définition à modifier
+        public void GetParameter(object parameter)
+        {
+            
+        }
+
+        //Permet de réinitialiser la liste si on arrive depuis un retour
+        public void GetIsBack()
+        {
+            initListe();
         }
     }
 }
