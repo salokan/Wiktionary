@@ -143,14 +143,6 @@ C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\ob
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Wiktionary.WindowsPhone.pdb
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\en-US\Microsoft.Practices.ServiceLocation.Properties.Resources.resw
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Wiktionary.WindowsPhone.csproj.GenerateResource.Cache
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
-C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation.pri
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\qualifiers.txt
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\priconfig.xml
@@ -166,3 +158,11 @@ C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\ob
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate

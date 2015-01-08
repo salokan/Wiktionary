@@ -9,14 +9,13 @@
     DataContext="{Binding ModifierDefinitions, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="153,34,0,0" TextWrapping="Wrap" Text="Modifier une définition" VerticalAlignment="Top" Height="166" Width="429" FontSize="72"/>
-        <TextBlock HorizontalAlignment="Left" Margin="287,221,0,0" TextWrapping="Wrap" Text="Modifier le mot" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBlock HorizontalAlignment="Left" Margin="96,272,0,0" TextWrapping="Wrap" Text="Mot" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="203,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Text="{Binding Path=MotAModifier, Mode=TwoWay}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="96,324,0,0" TextWrapping="Wrap" Text="Définition" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="203,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="183" Width="265" Text="{Binding Path=DefinitionAModifier, Mode=TwoWay}"/>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="232,543,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="357,543,0,0" VerticalAlignment="Top"  Command="{Binding Path=Retour}"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="15,29,0,0" TextWrapping="Wrap" Text="Modifier une définition" VerticalAlignment="Top" Height="48" Width="375" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,113,0,0" TextWrapping="Wrap" Text="Modifier le mot" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,258,0,0" TextWrapping="Wrap" Text="Mot" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="125,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Text="{Binding Path=MotAModifier, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,324,0,0" TextWrapping="Wrap" Text="Définition" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="125,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="183" Width="265" Text="{Binding Path=DefinitionAModifier, Mode=TwoWay}"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="73,543,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}" FontSize="14.667"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="262,543,0,0" VerticalAlignment="Top"  Command="{Binding Path=Retour}" FontSize="14.667"/>
     </Grid>
 </Page>

@@ -9,15 +9,15 @@
     DataContext="{Binding AjouterDefinitions, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="146,64,0,0" TextWrapping="Wrap" Text="Ajouter une définition" VerticalAlignment="Top" Height="195" Width="414" FontSize="72"/>
-        <TextBlock HorizontalAlignment="Left" Margin="179,281,0,0" TextWrapping="Wrap" Text="Veuillez saisir le mot et sa définition" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,324,0,0" TextWrapping="Wrap" Text="Mot :" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="146,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Text="{Binding Path=Mot, Mode=TwoWay}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,398,0,0" TextWrapping="Wrap" Text="Définition :" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="146,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="324" Text="{Binding Path=Definition, Mode=TwoWay}"/>
-        <Button Content="Ajouter en local" HorizontalAlignment="Left" Margin="43,636,0,0" VerticalAlignment="Top" Command="{Binding Path=Locale}"/>
-        <Button Content="Ajouter en roaming" HorizontalAlignment="Left" Margin="212,636,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"/>
-        <Button Content="Ajouter en publique" HorizontalAlignment="Left" Margin="396,636,0,0" VerticalAlignment="Top" Command="{Binding Path=Publique}"/>
-        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="267,695,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,33,0,0" TextWrapping="Wrap" Text="Ajouter une définition" VerticalAlignment="Top" Height="46" Width="352" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,108,0,0" TextWrapping="Wrap" Text="Veuillez saisir le mot et sa définition" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,171,0,0" TextWrapping="Wrap" Text="Mot :" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding Path=Mot, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="Définition :" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="277" Text="{Binding Path=Definition, Mode=TwoWay}"/>
+        <Button Content="Ajouter en local" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" Command="{Binding Path=Locale}" FontSize="14.667"/>
+        <Button Content="Ajouter en roaming" HorizontalAlignment="Left" Margin="10,524,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"  FontSize="14.667"/>
+        <Button Content="Ajouter en publique" HorizontalAlignment="Left" Margin="10,582,0,0" VerticalAlignment="Top" Command="{Binding Path=Publique}" FontSize="14.667"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="234,524,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}" FontSize="14.667"/>
     </Grid>
 </Page>
