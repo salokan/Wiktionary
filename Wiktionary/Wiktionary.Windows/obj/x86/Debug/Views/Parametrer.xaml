@@ -9,13 +9,11 @@
     DataContext="{Binding Parametrer, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="182,136,0,0" TextWrapping="Wrap" Text="Paramètres" VerticalAlignment="Top" FontSize="72"/>
-        <TextBlock HorizontalAlignment="Left" Margin="108,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Text="Username"/>
-        <TextBox HorizontalAlignment="Left" Margin="222,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Text="{Binding Path=Username, Mode=TwoWay}"/>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="512,301,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
-        <Button x:Name="RetourBouton" Content="Retour" HorizontalAlignment="Left" Margin="306,435,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
-
-
+        <TextBlock HorizontalAlignment="Left" Margin="108,46,0,0" TextWrapping="Wrap" Text="Paramètres" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14.667" Text="Username"/>
+        <TextBox HorizontalAlignment="Left" Margin="131,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Text="{Binding Path=Username, Mode=TwoWay}"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="175,393,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}" FontSize="14.667"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="175,489,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}" FontSize="14.667"/>
     </Grid>
 </Page>
 
