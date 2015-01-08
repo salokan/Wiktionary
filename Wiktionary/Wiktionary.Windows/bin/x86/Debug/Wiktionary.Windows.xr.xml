@@ -76,8 +76,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Command" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Height" />
       <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
