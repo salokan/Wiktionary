@@ -10,7 +10,7 @@ using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
-    public class RechercherDefinitionViewModel : ViewModelBase
+    public class RechercherDefinitionViewModel : ViewModelBase, IViewModel
     {
         private readonly INavigationService _navigationService;
 
@@ -84,6 +84,8 @@ namespace Wiktionary.ViewModel
         //Permet de récupérer toutes les définitions et de les insérer dans une même liste
         private void initDefinitionListe()
         {
+            toutesDefinitions.Clear();
+
             //Définitions locales
             GetDefinitionsLocales();
 
@@ -192,6 +194,8 @@ namespace Wiktionary.ViewModel
         //Naviguer sur la page précédente
         private void AfficherPagePrecedente()
         {
+            initDefinitionListe();
+
             _navigationService.GoBack();
         }
 
@@ -233,6 +237,18 @@ namespace Wiktionary.ViewModel
         {
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");
             msgDialog.ShowAsync();
+        }
+
+        //Récupère le paramètre contenant la définition à modifier
+        public void GetParameter(object parameter)
+        {
+
+        }
+
+        //Permet de réinitialiser la liste si on arrive depuis un retour
+        public void GetIsBack()
+        {
+            initDefinitionListe();
         }
     }
 }

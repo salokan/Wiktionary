@@ -16,7 +16,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="Définition :" VerticalAlignment="Top" FontSize="14.667"/>
         <TextBox HorizontalAlignment="Left" Margin="113,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="277" Text="{Binding Path=Definition, Mode=TwoWay}"/>
         <Button Content="Ajouter en local" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" Command="{Binding Path=Locale}" FontSize="14.667"/>
-        <Button Content="Ajouter en roaming" HorizontalAlignment="Left" Margin="10,518,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}" Height="63" FontSize="14.667"/>
+        <Button Content="Ajouter en roaming" HorizontalAlignment="Left" Margin="10,524,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"  FontSize="14.667"/>
         <Button Content="Ajouter en publique" HorizontalAlignment="Left" Margin="10,582,0,0" VerticalAlignment="Top" Command="{Binding Path=Publique}" FontSize="14.667"/>
         <Button Content="Retour" HorizontalAlignment="Left" Margin="234,524,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}" FontSize="14.667"/>
     </Grid>
