@@ -50,6 +50,9 @@
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Shared\test.xml">
+      <PackagePath>test.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>

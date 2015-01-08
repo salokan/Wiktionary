@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-08T09:42:06.478</Modified>
+      <Modified>2015-01-08T13:32:18.475</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.exe">
       <PackagePath>Wiktionary.Windows.exe</PackagePath>
-      <Modified>2015-01-08T09:42:05.865</Modified>
+      <Modified>2015-01-08T13:32:18.080</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -68,41 +68,45 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-01-08T09:37:57.991</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Shared\test.xml">
+      <PackagePath>test.xml</PackagePath>
+      <Modified>2015-01-08T13:09:15.305</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.574</Modified>
+      <Modified>2015-01-08T11:02:46.824</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\AjouterDefinitions.xbf">
       <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.574</Modified>
+      <Modified>2015-01-08T11:02:46.824</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ListeDefinitions.xbf">
       <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.574</Modified>
+      <Modified>2015-01-08T11:02:46.824</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.575</Modified>
+      <Modified>2015-01-08T11:02:46.824</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ModifierDefinitions.xbf">
       <PackagePath>Views\ModifierDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.575</Modified>
+      <Modified>2015-01-08T11:02:46.825</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\Parametrer.xbf">
       <PackagePath>Views\Parametrer.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.575</Modified>
+      <Modified>2015-01-08T11:02:46.825</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\RechercherDefinition.xbf">
       <PackagePath>Views\RechercherDefinition.xbf</PackagePath>
-      <Modified>2015-01-08T09:42:05.575</Modified>
+      <Modified>2015-01-08T11:02:46.825</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>
-      <Modified>2015-01-08T09:37:58.218</Modified>
+      <Modified>2015-01-08T10:51:13.609</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-01-08T09:42:06.287</Modified>
+      <Modified>2015-01-08T13:32:18.248</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

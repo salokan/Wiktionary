@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml.Serialization;
 using Windows.Storage;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
@@ -133,16 +135,34 @@ namespace Wiktionary.ViewModel
         }
 
         //Afficher toutes les définitions roaming
-        private void DefinitionsRoaming()
+        private async void DefinitionsRoaming()
         {
             TypeDefinitions = "Roaming";
-
+            
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
+            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+      // Get the DataFolder folder.
+        var dataFolder = await local.GetFolderAsync("DataFolder");
+
+        // Get the file.
+        var file = await dataFolder.OpenStreamForReadAsync("test.xml");
+        StreamReader stream = new System.IO.StreamReader(file);
+            
+            XmlSerializer xs = new XmlSerializer(typeof(Definitions));
+            using (var rd = new StreamReader(file))
+            {
+                Definitions p = xs.Deserialize(rd) as Definitions;
+                definitions.Add(new Definitions { Mot = "d", Definition = p.Definition, TypeDefinition = "roaming" });
+            }
+
+            
+
+            //definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
+            //definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
+            //definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
+            //definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             Definitions = definitions;
         }
