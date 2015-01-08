@@ -2,7 +2,9 @@
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using SQLite;
 using Wiktionary.Controllers;
+using Wiktionary.Models;
 
 namespace Wiktionary.ViewModel
 {
@@ -70,10 +72,36 @@ namespace Wiktionary.ViewModel
         }
 
         //Ajouter un définition locale
-        private void AjouterLocale()
+        private async void AjouterLocale()
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en local!", "Félicitation");
-            msgDialog.ShowAsync();
+            bool existeDeja = false;
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
+
+            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { mot });
+            foreach (var item in result)
+            {
+                if (item.Mot.Equals(mot))
+                    existeDeja = true;
+            }
+
+            if (existeDeja)
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " possède déjà une définition en locale", "Attention");
+                msgDialog.ShowAsync();
+            }
+            else
+            {
+                var DefinitionInsert = new DefinitionsTable()
+                {
+                    Mot = mot,
+                    Definition = definition
+                };
+                await connection.InsertAsync(DefinitionInsert);
+
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en local!", "Félicitation");
+                msgDialog.ShowAsync();
+            }
+            
         }
 
         //Ajouter un définition roaming

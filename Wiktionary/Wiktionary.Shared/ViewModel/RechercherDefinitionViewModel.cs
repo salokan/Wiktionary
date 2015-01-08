@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using SQLite;
 using Wiktionary.Controllers;
 using Wiktionary.Models;
 using Wiktionary.Views;
@@ -20,6 +21,10 @@ namespace Wiktionary.ViewModel
         public ICommand Supprimer { get; set; } //Bouton Supprimer
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
+
+        ObservableCollection<Definitions> definitionsLocales = new ObservableCollection<Definitions>();
+        ObservableCollection<Definitions> definitionsRoaming = new ObservableCollection<Definitions>();
+        ObservableCollection<Definitions> definitionsPubliques = new ObservableCollection<Definitions>();
 
         private string motRecherche;
         public string MotRecherche //TextBox du mot dont on veut trouver la définition
@@ -79,18 +84,8 @@ namespace Wiktionary.ViewModel
         //Permet de récupérer toutes les définitions et de les insérer dans une même liste
         private void initDefinitionListe()
         {
-            ObservableCollection<Definitions> definitionsLocales = new ObservableCollection<Definitions>();
-            ObservableCollection<Definitions> definitionsRoaming = new ObservableCollection<Definitions>();
-            ObservableCollection<Definitions> definitionsPubliques = new ObservableCollection<Definitions>();
-
             //Définitions locales
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "b", Definition = "bbbbbbbbbbbb", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "c", Definition = "cccccccccccc", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "dddddddddddd", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "eeeeeeeeeeee", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "ffffffffffff", TypeDefinition = "locale" });
-            definitionsLocales.Add(new Definitions { Mot = "a", Definition = "gggggggggggg", TypeDefinition = "locale" });
+            GetDefinitionsLocales();
 
             //Définitions roaming
             definitionsRoaming.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
@@ -106,10 +101,6 @@ namespace Wiktionary.ViewModel
             definitionsPubliques.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
 
             //Toutes définitions
-            foreach (Definitions dLocales in definitionsLocales)
-            {
-                toutesDefinitions.Add(dLocales);
-            }
             foreach (Definitions dRoaming in definitionsRoaming)
             {
                 toutesDefinitions.Add(dRoaming);
@@ -172,6 +163,22 @@ namespace Wiktionary.ViewModel
                                                                     definitionsRecherchees.Remove(definitionASupprimer);
                                                                 }
 
+                                                                if (definitionASupprimer.TypeDefinition.Equals("locale"))
+                                                                {
+                                                                    SupprimerLocale(definitionASupprimer);
+                                                                }
+                                                                else if (
+                                                                    definitionASupprimer.TypeDefinition.Equals(
+                                                                        "roaming"))
+                                                                {
+                                                                    SupprimerRoaming(definitionASupprimer);
+                                                                }
+                                                                else if (definitionASupprimer.TypeDefinition.Equals(
+                                                                    "publique"))
+                                                                {
+                                                                    SupprimerPublique(definitionASupprimer);
+                                                                }
+
                                                                 DefinitionsRecherchees = definitionsRecherchees;
                                                             }));
                 msgDialog.Commands.Add(new UICommand("No", (command) =>
@@ -186,6 +193,46 @@ namespace Wiktionary.ViewModel
         private void AfficherPagePrecedente()
         {
             _navigationService.GoBack();
+        }
+
+        //Permet de récupérer toutes les définitions dans la base de données
+        private async void GetDefinitionsLocales()
+        {
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
+
+            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions");
+            foreach (var item in result)
+            {
+                toutesDefinitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
+            }
+        }
+
+        //Supprimer de la base la Définition en paramètre
+        private async void SupprimerLocale(Definitions def)
+        {
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
+
+            var DefinitionDelete = await connection.Table<DefinitionsTable>().Where(x => x.Mot.Equals(def.Mot)).FirstOrDefaultAsync();
+
+            if (DefinitionDelete != null)
+            {
+                await connection.DeleteAsync(DefinitionDelete);
+            }
+
+            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en locale!", "Félicitation");
+            msgDialog.ShowAsync();
+        }
+
+        private void SupprimerRoaming(Definitions def)
+        {
+            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en roaming!", "Félicitation");
+            msgDialog.ShowAsync();
+        }
+
+        private void SupprimerPublique(Definitions def)
+        {
+            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");
+            msgDialog.ShowAsync();
         }
     }
 }

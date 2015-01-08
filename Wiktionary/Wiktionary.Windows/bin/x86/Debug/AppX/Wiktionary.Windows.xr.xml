@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roots >
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="AjouterDefinitions" />
+    <RootPropertyPathName Name="Retour" />
+    <RootPropertyPathName Name="Publique" />
+    <RootPropertyPathName Name="Roaming" />
+    <RootPropertyPathName Name="Locale" />
+    <RootPropertyPathName Name="Definition" />
+    <RootPropertyPathName Name="Mot" />
+    <RootPropertyPathName Name="ListeDefinitions" />
+    <RootPropertyPathName Name="Supprimer" />
+    <RootPropertyPathName Name="Modifier" />
+    <RootPropertyPathName Name="Definitions" />
+    <RootPropertyPathName Name="MotSelectionne" />
+    <RootPropertyPathName Name="TypeDefinitions" />
+    <RootPropertyPathName Name="Publiques" />
+    <RootPropertyPathName Name="Locales" />
+    <RootPropertyPathName Name="Toutes" />
+    <RootPropertyPathName Name="Main" />
+    <RootPropertyPathName Name="Parametrer" />
+    <RootPropertyPathName Name="RechercherDefinition" />
+    <RootPropertyPathName Name="ModifierDefinitions" />
+    <RootPropertyPathName Name="DefinitionAModifier" />
+    <RootPropertyPathName Name="MotAModifier" />
+    <RootPropertyPathName Name="Username" />
+    <RootPropertyPathName Name="DefinitionsRecherchees" />
+    <RootPropertyPathName Name="Rechercher" />
+    <RootPropertyPathName Name="MotRecherche" />
+  </Roots.PropertyPathNames>
+  <Roots.RootTypes>
+    <RootType FullName="Windows.UI.Xaml.Application">
+      <RootProperty Name="Resources" />
+    </RootType>
+    <RootType FullName="Wiktionary.ViewModel.ViewModelLocator" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Source" />
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="RenderTransformOrigin" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="FontSize" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Wiktionary.Views.AjouterDefinitions" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Height" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Wiktionary.Views.ListeDefinitions" />
+    <RootType FullName="Wiktionary.MainPage" />
+    <RootType FullName="Wiktionary.Views.ModifierDefinitions" />
+    <RootType FullName="Wiktionary.Views.Parametrer" />
+    <RootType FullName="Wiktionary.Views.RechercherDefinition" />
+  </Roots.RootTypes>
+</Roots>
