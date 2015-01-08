@@ -81,4 +81,3 @@ C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wik
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate
-C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Wiktionary.Windows.csprojResolveAssemblyReference.cache
