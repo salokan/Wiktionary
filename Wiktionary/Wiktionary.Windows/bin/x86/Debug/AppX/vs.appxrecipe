@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-08T00:35:16.093</Modified>
+      <Modified>2015-01-08T00:38:48.167</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.exe">
       <PackagePath>Wiktionary.Windows.exe</PackagePath>
-      <Modified>2015-01-08T00:35:15.170</Modified>
+      <Modified>2015-01-08T00:38:47.527</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -70,31 +70,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.477</Modified>
+      <Modified>2015-01-08T00:38:47.054</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\AjouterDefinitions.xbf">
       <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.478</Modified>
+      <Modified>2015-01-08T00:38:47.054</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ListeDefinitions.xbf">
       <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.479</Modified>
+      <Modified>2015-01-08T00:38:47.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.479</Modified>
+      <Modified>2015-01-08T00:38:47.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ModifierDefinitions.xbf">
       <PackagePath>Views\ModifierDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.480</Modified>
+      <Modified>2015-01-08T00:38:47.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\Parametrer.xbf">
       <PackagePath>Views\Parametrer.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.480</Modified>
+      <Modified>2015-01-08T00:38:47.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\RechercherDefinition.xbf">
       <PackagePath>Views\RechercherDefinition.xbf</PackagePath>
-      <Modified>2015-01-08T00:35:14.481</Modified>
+      <Modified>2015-01-08T00:38:47.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>
@@ -102,7 +102,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-01-08T00:35:15.799</Modified>
+      <Modified>2015-01-08T00:38:47.968</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
