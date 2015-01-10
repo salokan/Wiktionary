@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Data.Json;
 using Windows.Storage;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
@@ -26,8 +27,6 @@ namespace Wiktionary.ViewModel
         public ICommand Supprimer { get; set; } //Bouton Supprimer
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
-
-        public bool isBack = false;
 
         private string typeDefinitions;
         public string TypeDefinitions//TextBlock des définitions affichés
@@ -96,14 +95,12 @@ namespace Wiktionary.ViewModel
             definitions.Clear();
 
             GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            GetDefinitionsPubliques(); //Insère dans la liste les définitions du webservice
             //Liste des définitions à afficher
             definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
 
             Definitions = definitions;
         }
@@ -115,14 +112,12 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            GetDefinitionsLocales();
+            GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            GetDefinitionsPubliques(); //Insère dans la liste les définitions du webservice
             definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
             definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
 
             Definitions = definitions;
         }
@@ -161,9 +156,7 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
+            GetDefinitionsPubliques(); //Insère dans la liste les définitions du webservice
 
             Definitions = definitions;
         }
@@ -252,6 +245,33 @@ namespace Wiktionary.ViewModel
             }
         }
 
+        //Permet de récupérer toutes les définitions via le webservice
+        private async void GetDefinitionsPubliques()
+        {
+            Webservices ws = new Webservices();
+
+            string response = await ws.GetAllDefinitions();
+
+            string definitionsJSON = "{\"definitions\":" + response + "}";
+
+            JsonObject jsonObject = JsonObject.Parse(definitionsJSON);
+
+            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
+
+            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
+            {
+                if (jsonValue.ValueType == JsonValueType.Object)
+                {
+                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
+                }
+            }
+
+            foreach (DefinitionsPubliques dp in definitionsPubliques)
+            {
+                definitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
+            }
+        }
+
         //Supprimer de la base la Définition en paramètre
         private async void SupprimerLocale(Definitions def)
         {
@@ -274,6 +294,7 @@ namespace Wiktionary.ViewModel
             msgDialog.ShowAsync();
         }
 
+        //Supprime la définition avec les webservices
         private void SupprimerPublique(Definitions def)
         {
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");

@@ -343,6 +343,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
             case 18:   //  Wiktionary.Views.RechercherDefinition
                 userType = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_18_RechercherDefinition;
+                userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -389,6 +390,11 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
         private object get_7_ModifierDefinitions_ViewModel(object instance)
         {
             var that = (global::Wiktionary.Views.ModifierDefinitions)instance;
+            return that.ViewModel;
+        }
+        private object get_8_RechercherDefinition_ViewModel(object instance)
+        {
+            var that = (global::Wiktionary.Views.RechercherDefinition)instance;
             return that.ViewModel;
         }
 
@@ -445,6 +451,12 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
                 userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.ModifierDefinitions");
                 xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
                 xamlMember.Getter = get_7_ModifierDefinitions_ViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Wiktionary.Views.RechercherDefinition.ViewModel":
+                userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.RechercherDefinition");
+                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
+                xamlMember.Getter = get_8_RechercherDefinition_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

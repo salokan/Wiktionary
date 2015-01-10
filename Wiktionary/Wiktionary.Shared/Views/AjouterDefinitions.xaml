@@ -12,9 +12,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="24,33,0,0" TextWrapping="Wrap" Text="Ajouter une définition" VerticalAlignment="Top" Height="46" Width="352" FontSize="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="82,108,0,0" TextWrapping="Wrap" Text="Veuillez saisir le mot et sa définition" VerticalAlignment="Top" FontSize="14.667"/>
         <TextBlock HorizontalAlignment="Left" Margin="24,171,0,0" TextWrapping="Wrap" Text="Mot :" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="113,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding Path=Mot, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding Path=Mot, Mode=TwoWay}" MaxLength="10"/>
         <TextBlock HorizontalAlignment="Left" Margin="24,238,0,0" TextWrapping="Wrap" Text="Définition :" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="113,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="277" Text="{Binding Path=Definition, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="277" Text="{Binding Path=Definition, Mode=TwoWay}" MaxLength="100"/>
         <Button Content="Ajouter en local" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" Command="{Binding Path=Locale}" FontSize="14.667"/>
         <Button Content="Ajouter en roaming" HorizontalAlignment="Left" Margin="10,524,0,0" VerticalAlignment="Top" Command="{Binding Path=Roaming}"  FontSize="14.667"/>
         <Button Content="Ajouter en publique" HorizontalAlignment="Left" Margin="10,582,0,0" VerticalAlignment="Top" Command="{Binding Path=Publique}" FontSize="14.667"/>

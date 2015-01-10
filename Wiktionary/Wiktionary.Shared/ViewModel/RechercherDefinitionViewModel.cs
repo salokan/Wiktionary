@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Windows.Data.Json;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -22,9 +24,7 @@ namespace Wiktionary.ViewModel
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
-        ObservableCollection<Definitions> definitionsLocales = new ObservableCollection<Definitions>();
         ObservableCollection<Definitions> definitionsRoaming = new ObservableCollection<Definitions>();
-        ObservableCollection<Definitions> definitionsPubliques = new ObservableCollection<Definitions>();
 
         private string motRecherche;
         public string MotRecherche //TextBox du mot dont on veut trouver la définition
@@ -96,20 +96,12 @@ namespace Wiktionary.ViewModel
             definitionsRoaming.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             //Définitions publiques
-            definitionsPubliques.Add(new Definitions { Mot = "a", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitionsPubliques.Add(new Definitions { Mot = "a", Definition = "aaaaaaaaaaaa", TypeDefinition = "publique" });
-            definitionsPubliques.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitionsPubliques.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitionsPubliques.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
+            GetDefinitionsPubliques();
 
             //Toutes définitions
             foreach (Definitions dRoaming in definitionsRoaming)
             {
                 toutesDefinitions.Add(dRoaming);
-            }
-            foreach (Definitions dPubliques in definitionsPubliques)
-            {
-                toutesDefinitions.Add(dPubliques);
             }
         }
 
@@ -208,6 +200,33 @@ namespace Wiktionary.ViewModel
             foreach (var item in result)
             {
                 toutesDefinitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
+            }
+        }
+
+        //Permet de récupérer toutes les définitions via le webservice
+        private async void GetDefinitionsPubliques()
+        {
+            Webservices ws = new Webservices();
+
+            string response = await ws.GetAllDefinitions();
+
+            string definitionsJSON = "{\"definitions\":" + response + "}";
+
+            JsonObject jsonObject = JsonObject.Parse(definitionsJSON);
+
+            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
+
+            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
+            {
+                if (jsonValue.ValueType == JsonValueType.Object)
+                {
+                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
+                }
+            }
+
+            foreach (DefinitionsPubliques dp in definitionsPubliques)
+            {
+                toutesDefinitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
             }
         }
 

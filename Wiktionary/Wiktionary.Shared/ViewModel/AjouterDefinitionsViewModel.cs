@@ -119,9 +119,9 @@ namespace Wiktionary.ViewModel
         }
 
         //Naviguer sur la page précédente
-        private void AfficherPagePrecedente()
+        private async void AfficherPagePrecedente()
         {
-            _navigationService.GoBack();
+           _navigationService.GoBack();
         }
     }
 }
