@@ -179,7 +179,7 @@ namespace Wiktionary.ViewModel
                 MessageDialog msgDialog =
                     new MessageDialog("Etes-vous sûr de vouloir supprimer la définition sélectionnée?",
                         "Demande de confirmation");
-                msgDialog.Commands.Add(new UICommand("Yes", (command) =>
+                msgDialog.Commands.Add(new UICommand("Oui", (command) =>
                                                             {
                                                                 Definitions definitionASupprimer = new Definitions();
                                                                 bool aSupprimer = false;
@@ -194,7 +194,7 @@ namespace Wiktionary.ViewModel
                                                                         aSupprimer = true;
                                                                     }
 
-                                                                if (aSupprimer)
+                                                                if (aSupprimer && !definitionASupprimer.TypeDefinition.Equals("publique"))
                                                                 {
                                                                     definitions.Remove(definitionASupprimer);
                                                                 }
@@ -217,7 +217,7 @@ namespace Wiktionary.ViewModel
 
                                                                 Definitions = definitions;
                                                             }));
-                msgDialog.Commands.Add(new UICommand("No", (command) =>
+                msgDialog.Commands.Add(new UICommand("Non", (command) =>
                                                            {
 
                                                            }));
@@ -295,10 +295,25 @@ namespace Wiktionary.ViewModel
         }
 
         //Supprime la définition avec les webservices
-        private void SupprimerPublique(Definitions def)
+        private async void SupprimerPublique(Definitions def)
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");
-            msgDialog.ShowAsync();
+            Webservices ws = new Webservices();
+            string response = await ws.DeleteDefinition(def.Mot, "gregnico");
+
+            if (response.Equals("\"Success\""))
+            {
+                definitions.Remove(def);
+
+                Definitions = definitions;
+
+                MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en publique!", "Félicitation");
+                msgDialog.ShowAsync();
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition + " donc vous ne pouvez pas le supprimer!", "Attention");
+                msgDialog.ShowAsync();
+            } 
         }
 
         //Récupère le paramètre contenant la définition à modifier

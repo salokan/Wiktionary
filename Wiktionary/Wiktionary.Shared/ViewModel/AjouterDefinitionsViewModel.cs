@@ -120,7 +120,7 @@ namespace Wiktionary.ViewModel
 
             if (response.Equals("\"Success\""))
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en public!", "Félicitation");
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en publique!", "Félicitation");
                 msgDialog.ShowAsync();
             }
             else
