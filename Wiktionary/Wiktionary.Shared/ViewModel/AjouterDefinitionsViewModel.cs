@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Windows.Data.Json;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -112,16 +113,35 @@ namespace Wiktionary.ViewModel
         }
 
         //Ajouter un définition publique
-        private void AjouterPublique()
+        private async void AjouterPublique()
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en public!", "Félicitation");
-            msgDialog.ShowAsync();
+            Webservices ws = new Webservices();
+            string response = await ws.AddDefinition(mot,definition, "gregnico");
+
+            if (response.Equals("\"Success\""))
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en public!", "Félicitation");
+                msgDialog.ShowAsync();
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " possède déjà une définition en publique", "Attention");
+                msgDialog.ShowAsync();
+            }   
         }
 
         //Naviguer sur la page précédente
-        private async void AfficherPagePrecedente()
+        private void AfficherPagePrecedente()
         {
            _navigationService.GoBack();
+            
+
+            //string response = await ws.GetDefinition("coucou");
+
+            //JsonObject jsonObject = JsonObject.Parse(response);
+
+            //string mot = jsonObject.GetNamedString("Word");
+            //string definition = jsonObject.GetNamedString("Definition");
         }
     }
 }

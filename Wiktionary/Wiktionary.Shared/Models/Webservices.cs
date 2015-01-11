@@ -60,7 +60,86 @@ namespace Wiktionary.Models
                 response.EnsureSuccessStatusCode();
 
                 responseBodyAsText = await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                // Need to convert int HResult to hex string
+                definitions = "Error = " + ex.HResult.ToString("X") +
+                    "  Message: " + ex.Message;
+                responseBodyAsText = "";
+            }
+            definitions = responseBodyAsText;
 
+            return definitions;
+        }
+
+        public async Task<string> GetDefinition(string mot)
+        {
+            string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/Get/" + mot;
+
+            string definitions = "";
+
+            response = new HttpResponseMessage();
+
+            Uri resourceUri;
+            if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
+            {
+                definitions = "Invalid URI, please re-enter a valid URI";
+            }
+            if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
+            {
+                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
+            }
+
+            string responseBodyAsText;
+
+            try
+            {
+                response = await httpClient.GetAsync(resourceUri);
+
+                response.EnsureSuccessStatusCode();
+
+                responseBodyAsText = await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                // Need to convert int HResult to hex string
+                definitions = "Error = " + ex.HResult.ToString("X") +
+                    "  Message: " + ex.Message;
+                responseBodyAsText = "";
+            }
+            definitions = responseBodyAsText;
+
+            return definitions;
+        }
+
+        public async Task<string> AddDefinition(string mot, string definition, string username)
+        {
+            string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/AddDefinition/" + mot + "/" + definition + "/" + username;
+
+            string definitions = "";
+
+            response = new HttpResponseMessage();
+
+            Uri resourceUri;
+            if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
+            {
+                definitions = "Invalid URI, please re-enter a valid URI";
+            }
+            if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
+            {
+                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
+            }
+
+            string responseBodyAsText;
+
+            try
+            {
+                response = await httpClient.GetAsync(resourceUri);
+
+                response.EnsureSuccessStatusCode();
+
+                responseBodyAsText = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
             {
