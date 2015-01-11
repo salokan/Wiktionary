@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Web.Http;
+using Windows.Web.Http.Filters;
 
 namespace Wiktionary.Models
 {
@@ -18,7 +19,10 @@ namespace Wiktionary.Models
 
         private void InitWebservice()
         {
-            httpClient = new HttpClient();
+            HttpBaseProtocolFilter RootFilter = new HttpBaseProtocolFilter();
+            RootFilter.CacheControl.ReadBehavior = Windows.Web.Http.Filters.HttpCacheReadBehavior.MostRecent;
+            RootFilter.CacheControl.WriteBehavior = Windows.Web.Http.Filters.HttpCacheWriteBehavior.NoCache;
+            httpClient = new HttpClient(RootFilter);
 
             // Add a user-agent header
             var headers = httpClient.DefaultRequestHeaders;

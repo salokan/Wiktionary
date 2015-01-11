@@ -252,6 +252,7 @@ namespace Wiktionary.ViewModel
             msgDialog.ShowAsync();
         }
 
+        //Supprime la définition via le web service
         private async void SupprimerPublique(Definitions def)
         {
             Webservices ws = new Webservices();
@@ -260,6 +261,7 @@ namespace Wiktionary.ViewModel
             if (response.Equals("\"Success\""))
             {
                 definitionsRecherchees.Remove(def);
+                toutesDefinitions.Remove(def);
 
                 DefinitionsRecherchees = definitionsRecherchees;
 

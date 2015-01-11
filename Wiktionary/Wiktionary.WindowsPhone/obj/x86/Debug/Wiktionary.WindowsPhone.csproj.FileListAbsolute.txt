@@ -81,3 +81,4 @@ C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wik
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Wiktionary.WindowsPhone.csprojResolveAssemblyReference.cache
