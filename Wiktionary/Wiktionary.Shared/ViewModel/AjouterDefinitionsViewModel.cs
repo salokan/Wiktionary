@@ -133,14 +133,6 @@ namespace Wiktionary.ViewModel
         private void AfficherPagePrecedente()
         {
            _navigationService.GoBack();
-            
-
-            //string response = await ws.GetDefinition("coucou");
-
-            //JsonObject jsonObject = JsonObject.Parse(response);
-
-            //string mot = jsonObject.GetNamedString("Word");
-            //string definition = jsonObject.GetNamedString("Definition");
         }
     }
 }

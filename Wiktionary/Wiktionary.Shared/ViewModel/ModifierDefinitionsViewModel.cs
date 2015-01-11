@@ -90,6 +90,7 @@ namespace Wiktionary.ViewModel
             _navigationService.GoBack();
         }
 
+        //On modifie la définition dans la base
         private async void ModificationLocale()
         {
             bool existeDeja = false;
@@ -138,14 +139,55 @@ namespace Wiktionary.ViewModel
         {
             MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
             msgDialog.ShowAsync();
-            _navigationService.GoBack();
         }
 
-        private void ModificationPublique()
+        //On modifie la définition via le web service
+        private async void ModificationPublique()
         {
-            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
-            msgDialog.ShowAsync();
-            _navigationService.GoBack();
+            Webservices ws = new Webservices();
+
+            //On vérifie si le mot que l'on va ajouter existe déjà dans la liste
+            bool existeDeja = false;
+
+            if (!MotAModifier.Equals(_motDeBase))
+            {
+                string response = await ws.GetDefinition(MotAModifier);
+                if (!response.Equals(""))
+                    existeDeja = true;
+            }
+
+            if (!existeDeja)
+            {
+                //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
+                string response2 = await ws.DeleteDefinition(_motDeBase, "gregnico");
+                if (response2.Equals("\"Success\""))
+                {
+                    string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, "gregnico");
+
+                    if (response3.Equals("\"Success\""))
+                    {
+                        MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
+                        msgDialog.ShowAsync();
+                    }
+                    else
+                    {
+                        MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
+                        msgDialog.ShowAsync();
+                    }
+                }
+                else
+                {
+                    MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
+                    msgDialog.ShowAsync();
+                }
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
+                msgDialog.ShowAsync();
+            }
+
+            
         }
 
         //Récupère le paramètre contenant la définition à modifier
@@ -170,6 +212,8 @@ namespace Wiktionary.ViewModel
         }
     }
 
+
+    //Interfaces de navigation
     public interface IView
     {
         IViewModel ViewModel { get; }

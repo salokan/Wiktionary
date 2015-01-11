@@ -82,6 +82,8 @@ namespace Wiktionary.ViewModel
         //Permet de récupérer toutes les définitions et de les insérer dans une même liste
         private void InitListe()
         {
+            definitionsRecherchees.Clear();
+            MotRecherche = "";
             toutesDefinitions.Clear();
 
             //Définitions locales
