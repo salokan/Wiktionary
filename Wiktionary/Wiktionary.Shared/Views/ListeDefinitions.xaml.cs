@@ -13,20 +13,17 @@ namespace Wiktionary.Views
     {
         public ListeDefinitions()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        public ViewModel.IViewModel ViewModel
+        public IViewModel ViewModel
         {
-            get { return this.DataContext as IViewModel; }
+            get { return DataContext as IViewModel; }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.NavigationMode == NavigationMode.Back)
-            {
-                this.ViewModel.GetIsBack();
-            }
+            ViewModel.OnNavigatedTo();
         }     
     }
 }

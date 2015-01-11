@@ -13,6 +13,7 @@
     <RootPropertyPathName Name="Modifier" />
     <RootPropertyPathName Name="Definitions" />
     <RootPropertyPathName Name="MotSelectionne" />
+    <RootPropertyPathName Name="TypeDefinition" />
     <RootPropertyPathName Name="TypeDefinitions" />
     <RootPropertyPathName Name="Publiques" />
     <RootPropertyPathName Name="Locales" />
@@ -59,6 +60,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />
@@ -67,6 +70,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Text" />
+      <RootProperty Name="MaxLength" />
       <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
@@ -100,7 +104,7 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
-    <RootType FullName="Wiktionary.MainPage" />
+    <RootType FullName="Wiktionary.Views.MainPage" />
     <RootType FullName="Wiktionary.Views.ModifierDefinitions" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
     <RootType FullName="Wiktionary.Views.RechercherDefinition" />

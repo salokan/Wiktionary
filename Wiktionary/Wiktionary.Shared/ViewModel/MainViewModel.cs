@@ -82,13 +82,12 @@ namespace Wiktionary.ViewModel
 
         public ICommand Parametrer { get; set; }
 
-        public async Task<bool> DoesDbExist(string DatabaseName)
+        public async Task<bool> DoesDbExist(string databaseName)
         {
             bool dbexist = true;
             try
             {
-                StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(DatabaseName);
-
+                await ApplicationData.Current.LocalFolder.GetFileAsync(databaseName);
             }
             catch
             {

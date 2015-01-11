@@ -13,7 +13,7 @@ namespace Wiktionary.Views
     {
         public ModifierDefinitions()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public ViewModel.IViewModel ViewModel
@@ -27,7 +27,7 @@ namespace Wiktionary.Views
 
             if (e.Parameter != null)
             {
-                this.ViewModel.GetParameter(e.Parameter);
+                ViewModel.GetParameter(e.Parameter);
             }
         }  
     }
