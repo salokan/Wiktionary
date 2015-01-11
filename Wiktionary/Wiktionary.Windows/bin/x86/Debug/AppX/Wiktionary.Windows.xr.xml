@@ -13,6 +13,7 @@
     <RootPropertyPathName Name="Modifier" />
     <RootPropertyPathName Name="Definitions" />
     <RootPropertyPathName Name="MotSelectionne" />
+    <RootPropertyPathName Name="TypeDefinition" />
     <RootPropertyPathName Name="TypeDefinitions" />
     <RootPropertyPathName Name="Publiques" />
     <RootPropertyPathName Name="Locales" />
@@ -59,6 +60,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />

@@ -18,8 +18,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="125" Width="468">
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Mot}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Definition}" Height="102"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Mot}" HorizontalAlignment="Right" Width="468" FontWeight="Bold"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding TypeDefinition}" Foreground="#FF3C57CF"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Definition}" Height="99"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
