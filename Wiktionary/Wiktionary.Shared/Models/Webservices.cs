@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
@@ -9,8 +7,8 @@ namespace Wiktionary.Models
 {
     public class Webservices
     {
-        private HttpClient httpClient;
-        private HttpResponseMessage response;
+        private HttpClient _httpClient;
+        private HttpResponseMessage _response;
 
         public Webservices()
         {
@@ -19,13 +17,13 @@ namespace Wiktionary.Models
 
         private void InitWebservice()
         {
-            HttpBaseProtocolFilter RootFilter = new HttpBaseProtocolFilter();
-            RootFilter.CacheControl.ReadBehavior = Windows.Web.Http.Filters.HttpCacheReadBehavior.MostRecent;
-            RootFilter.CacheControl.WriteBehavior = Windows.Web.Http.Filters.HttpCacheWriteBehavior.NoCache;
-            httpClient = new HttpClient(RootFilter);
+            HttpBaseProtocolFilter rootFilter = new HttpBaseProtocolFilter();
+            rootFilter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
+            rootFilter.CacheControl.WriteBehavior = HttpCacheWriteBehavior.NoCache;
+            _httpClient = new HttpClient(rootFilter);
 
             // Add a user-agent header
-            var headers = httpClient.DefaultRequestHeaders;
+            var headers = _httpClient.DefaultRequestHeaders;
 
             // HttpProductInfoHeaderValueCollection is a collection of 
             // HttpProductInfoHeaderValue items used for the user-agent header
@@ -44,35 +42,41 @@ namespace Wiktionary.Models
 
             string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/GetAllDefinitions";
 
-            string definitions = "";
+            string definitions;
 
-            response = new HttpResponseMessage();
+            _response = new HttpResponseMessage();
 
             Uri resourceUri;
             if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
             {
+/*
                 definitions = "Invalid URI, please re-enter a valid URI";
+*/
             }
             if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
             {
+/*
                 definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
+*/
             }
 
             string responseBodyAsText;
 
             try
             {
-                response = await httpClient.GetAsync(resourceUri);
+                _response = await _httpClient.GetAsync(resourceUri);
 
-                response.EnsureSuccessStatusCode();
+                _response.EnsureSuccessStatusCode();
 
-                responseBodyAsText = await response.Content.ReadAsStringAsync();
+                responseBodyAsText = await _response.Content.ReadAsStringAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Need to convert int HResult to hex string
+/*
                 definitions = "Error = " + ex.HResult.ToString("X") +
                     "  Message: " + ex.Message;
+*/
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -87,35 +91,31 @@ namespace Wiktionary.Models
 
             string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/Get/" + mot;
 
-            string definitions = "";
+            string definitions;
 
-            response = new HttpResponseMessage();
+            _response = new HttpResponseMessage();
 
             Uri resourceUri;
             if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
             {
-                definitions = "Invalid URI, please re-enter a valid URI";
             }
             if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
             {
-                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
             }
 
             string responseBodyAsText;
 
             try
             {
-                response = await httpClient.GetAsync(resourceUri);
+                _response = await _httpClient.GetAsync(resourceUri);
 
-                response.EnsureSuccessStatusCode();
+                _response.EnsureSuccessStatusCode();
 
-                responseBodyAsText = await response.Content.ReadAsStringAsync();
+                responseBodyAsText = await _response.Content.ReadAsStringAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Need to convert int HResult to hex string
-                definitions = "Error = " + ex.HResult.ToString("X") +
-                    "  Message: " + ex.Message;
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -130,35 +130,31 @@ namespace Wiktionary.Models
 
             string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/AddDefinition/" + mot + "/" + definition + "/" + username;
 
-            string definitions = "";
+            string definitions;
 
-            response = new HttpResponseMessage();
+            _response = new HttpResponseMessage();
 
             Uri resourceUri;
             if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
             {
-                definitions = "Invalid URI, please re-enter a valid URI";
             }
             if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
             {
-                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
             }
 
             string responseBodyAsText;
 
             try
             {
-                response = await httpClient.GetAsync(resourceUri);
+                _response = await _httpClient.GetAsync(resourceUri);
 
-                response.EnsureSuccessStatusCode();
+                _response.EnsureSuccessStatusCode();
 
-                responseBodyAsText = await response.Content.ReadAsStringAsync();
+                responseBodyAsText = await _response.Content.ReadAsStringAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Need to convert int HResult to hex string
-                definitions = "Error = " + ex.HResult.ToString("X") +
-                    "  Message: " + ex.Message;
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -173,35 +169,31 @@ namespace Wiktionary.Models
 
             string adresse = "http://wiktionary.azurewebsites.net/Wiktionary.svc/RemoveDefinition/" + mot + "/" + username;
 
-            string definitions = "";
+            string definitions;
 
-            response = new HttpResponseMessage();
+            _response = new HttpResponseMessage();
 
             Uri resourceUri;
             if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
             {
-                definitions = "Invalid URI, please re-enter a valid URI";
             }
             if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
             {
-                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
             }
 
             string responseBodyAsText;
 
             try
             {
-                response = await httpClient.GetAsync(resourceUri);
+                _response = await _httpClient.GetAsync(resourceUri);
 
-                response.EnsureSuccessStatusCode();
+                _response.EnsureSuccessStatusCode();
 
-                responseBodyAsText = await response.Content.ReadAsStringAsync();
+                responseBodyAsText = await _response.Content.ReadAsStringAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Need to convert int HResult to hex string
-                definitions = "Error = " + ex.HResult.ToString("X") +
-                    "  Message: " + ex.Message;
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;

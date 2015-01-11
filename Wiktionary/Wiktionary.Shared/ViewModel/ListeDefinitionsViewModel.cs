@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Data.Json;
-using Windows.Storage;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -28,38 +25,39 @@ namespace Wiktionary.ViewModel
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
-        private string typeDefinitions;
+        private string _typeDefinitions;
         public string TypeDefinitions//TextBlock des définitions affichés
         {
             get
             {
-                return typeDefinitions;
+                return _typeDefinitions;
             }
 
             set
             {
-                if (typeDefinitions != value)
+                if (_typeDefinitions != value)
                 {
-                    typeDefinitions = value;
-                    RaisePropertyChanged("TypeDefinitions");
+                    _typeDefinitions = value;
+                    RaisePropertyChanged();
+                    //RaisePropertyChanged("TypeDefinitions");
                 }
             }
         }
 
-        private Definitions motSelectionne;
+        private Definitions _motSelectionne;
         public Definitions MotSelectionne //Valeur du mot sélectionné dans la liste
         {
             get
             {
-                return motSelectionne;
+                return _motSelectionne;
             }
 
             set
             {
-                if (motSelectionne != value)
+                if (_motSelectionne != value)
                 {
-                    motSelectionne = value;
-                    RaisePropertyChanged("MotSelectionne");
+                    _motSelectionne = value;
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -68,8 +66,6 @@ namespace Wiktionary.ViewModel
         public ListeDefinitionsViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-
-            initListe();
 
             //Bouton Toutes
             Toutes = new RelayCommand(ToutesDefinitions);
@@ -88,7 +84,7 @@ namespace Wiktionary.ViewModel
         }
 
         //Initialise la liste des définition
-        private void initListe()
+        private void InitListe()
         {
             TypeDefinitions = "Toutes";
 
@@ -164,9 +160,9 @@ namespace Wiktionary.ViewModel
         //Naviguer sur la page Modifier
         private void AfficherModifierDefinition()
         {
-            if (motSelectionne != null)
+            if (_motSelectionne != null)
             {
-                _navigationService.Navigate(typeof(ModifierDefinitions), motSelectionne);
+                _navigationService.Navigate(typeof(ModifierDefinitions), _motSelectionne);
             }
             
         } 
@@ -174,21 +170,21 @@ namespace Wiktionary.ViewModel
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
         {
-            if (motSelectionne != null)
+            if (_motSelectionne != null)
             {
                 MessageDialog msgDialog =
                     new MessageDialog("Etes-vous sûr de vouloir supprimer la définition sélectionnée?",
                         "Demande de confirmation");
-                msgDialog.Commands.Add(new UICommand("Oui", (command) =>
+                msgDialog.Commands.Add(new UICommand("Oui", command =>
                                                             {
                                                                 Definitions definitionASupprimer = new Definitions();
                                                                 bool aSupprimer = false;
 
                                                                 foreach (Definitions d in definitions)
-                                                                    if (d.Mot.Equals(motSelectionne.Mot) &&
-                                                                        d.Definition.Equals(motSelectionne.Definition) &&
+                                                                    if (d.Mot.Equals(_motSelectionne.Mot) &&
+                                                                        d.Definition.Equals(_motSelectionne.Definition) &&
                                                                         d.TypeDefinition.Equals(
-                                                                            motSelectionne.TypeDefinition))
+                                                                            _motSelectionne.TypeDefinition))
                                                                     {
                                                                         definitionASupprimer = d;
                                                                         aSupprimer = true;
@@ -217,7 +213,7 @@ namespace Wiktionary.ViewModel
 
                                                                 Definitions = definitions;
                                                             }));
-                msgDialog.Commands.Add(new UICommand("Non", (command) =>
+                msgDialog.Commands.Add(new UICommand("Non", command =>
                                                            {
 
                                                            }));
@@ -228,8 +224,6 @@ namespace Wiktionary.ViewModel
         //Naviguer sur la page précédente
         private void AfficherPagePrecedente()
         {
-            initListe();
-
             _navigationService.GoBack();
         }
 
@@ -252,9 +246,9 @@ namespace Wiktionary.ViewModel
 
             string response = await ws.GetAllDefinitions();
 
-            string definitionsJSON = "{\"definitions\":" + response + "}";
+            string definitionsJson = "{\"definitions\":" + response + "}";
 
-            JsonObject jsonObject = JsonObject.Parse(definitionsJSON);
+            JsonObject jsonObject = JsonObject.Parse(definitionsJson);
 
             List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
 
@@ -277,11 +271,11 @@ namespace Wiktionary.ViewModel
         {
             SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
-            var DefinitionDelete = await connection.Table<DefinitionsTable>().Where(x => x.Mot.Equals(def.Mot)).FirstOrDefaultAsync();
+            var definitionDelete = await connection.Table<DefinitionsTable>().Where(x => x.Mot.Equals(def.Mot)).FirstOrDefaultAsync();
 
-            if (DefinitionDelete != null)
+            if (definitionDelete != null)
             {
-                await connection.DeleteAsync(DefinitionDelete);
+                await connection.DeleteAsync(definitionDelete);
             }
 
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en locale!", "Félicitation");
@@ -322,10 +316,10 @@ namespace Wiktionary.ViewModel
             
         }
 
-        //Permet de réinitialiser la liste si on arrive depuis un retour
-        public void GetIsBack()
+        //Permet de réinitialiser la liste à chaque fois que l'on navigue sur cette page
+        public void OnNavigatedTo()
         {
-            initListe();
+            InitListe();
         }
     }
 }

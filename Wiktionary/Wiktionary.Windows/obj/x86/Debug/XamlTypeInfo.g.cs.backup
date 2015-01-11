@@ -140,7 +140,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
             _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[13] = "Wiktionary.Views.ListeDefinitions";
             _typeNameTable[14] = "Wiktionary.ViewModel.IViewModel";
-            _typeNameTable[15] = "Wiktionary.MainPage";
+            _typeNameTable[15] = "Wiktionary.Views.MainPage";
             _typeNameTable[16] = "Wiktionary.Views.ModifierDefinitions";
             _typeNameTable[17] = "Wiktionary.Views.Parametrer";
             _typeNameTable[18] = "Wiktionary.Views.RechercherDefinition";
@@ -161,7 +161,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
             _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[13] = typeof(global::Wiktionary.Views.ListeDefinitions);
             _typeTable[14] = typeof(global::Wiktionary.ViewModel.IViewModel);
-            _typeTable[15] = typeof(global::Wiktionary.MainPage);
+            _typeTable[15] = typeof(global::Wiktionary.Views.MainPage);
             _typeTable[16] = typeof(global::Wiktionary.Views.ModifierDefinitions);
             _typeTable[17] = typeof(global::Wiktionary.Views.Parametrer);
             _typeTable[18] = typeof(global::Wiktionary.Views.RechercherDefinition);
@@ -203,7 +203,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
         private object Activate_4_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
         private object Activate_10_AjouterDefinitions() { return new global::Wiktionary.Views.AjouterDefinitions(); }
         private object Activate_13_ListeDefinitions() { return new global::Wiktionary.Views.ListeDefinitions(); }
-        private object Activate_15_MainPage() { return new global::Wiktionary.MainPage(); }
+        private object Activate_15_MainPage() { return new global::Wiktionary.Views.MainPage(); }
         private object Activate_16_ModifierDefinitions() { return new global::Wiktionary.Views.ModifierDefinitions(); }
         private object Activate_17_Parametrer() { return new global::Wiktionary.Views.Parametrer(); }
         private object Activate_18_RechercherDefinition() { return new global::Wiktionary.Views.RechercherDefinition(); }
@@ -318,7 +318,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 15:   //  Wiktionary.MainPage
+            case 15:   //  Wiktionary.Views.MainPage
                 userType = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_15_MainPage;
                 userType.SetIsLocalType();

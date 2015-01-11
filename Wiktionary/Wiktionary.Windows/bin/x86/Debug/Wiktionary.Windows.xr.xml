@@ -101,7 +101,7 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Wiktionary.Views.ListeDefinitions" />
-    <RootType FullName="Wiktionary.MainPage" />
+    <RootType FullName="Wiktionary.Views.MainPage" />
     <RootType FullName="Wiktionary.Views.ModifierDefinitions" />
     <RootType FullName="Wiktionary.Views.Parametrer" />
     <RootType FullName="Wiktionary.Views.RechercherDefinition" />

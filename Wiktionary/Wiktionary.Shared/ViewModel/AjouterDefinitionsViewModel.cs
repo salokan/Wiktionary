@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using Windows.Data.Json;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -18,38 +17,38 @@ namespace Wiktionary.ViewModel
         public ICommand Publique { get; set; } //Bouton Ajouter Publique
         public ICommand Retour { get; set; } //Bouton Retour
 
-        private string mot;
+        private string _mot;
         public string Mot //Mot à ajouter
         {
             get
             {
-                return mot;
+                return _mot;
             }
 
             set
             {
-                if (mot != value)
+                if (_mot != value)
                 {
-                    mot = value;
-                    RaisePropertyChanged("Mot");
+                    _mot = value;
+                    RaisePropertyChanged();
                 }
             }
         }
 
-        private string definition;
+        private string _definition;
         public string Definition //Définition à ajouter
         {
             get
             {
-                return definition;
+                return _definition;
             }
 
             set
             {
-                if (definition != value)
+                if (_definition != value)
                 {
-                    definition = value;
-                    RaisePropertyChanged("Definition");
+                    _definition = value;
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -78,28 +77,28 @@ namespace Wiktionary.ViewModel
             bool existeDeja = false;
             SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
-            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { mot });
+            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _mot });
             foreach (var item in result)
             {
-                if (item.Mot.Equals(mot))
+                if (item.Mot.Equals(_mot))
                     existeDeja = true;
             }
 
             if (existeDeja)
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " possède déjà une définition en locale", "Attention");
+                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en locale", "Attention");
                 msgDialog.ShowAsync();
             }
             else
             {
-                var DefinitionInsert = new DefinitionsTable()
+                var definitionInsert = new DefinitionsTable
                 {
-                    Mot = mot,
-                    Definition = definition
+                    Mot = _mot,
+                    Definition = _definition
                 };
-                await connection.InsertAsync(DefinitionInsert);
+                await connection.InsertAsync(definitionInsert);
 
-                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en local!", "Félicitation");
+                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en local!", "Félicitation");
                 msgDialog.ShowAsync();
             }
             
@@ -108,7 +107,7 @@ namespace Wiktionary.ViewModel
         //Ajouter un définition roaming
         private void AjouterRoaming()
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en roaming!", "Félicitation");
+            MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en roaming!", "Félicitation");
             msgDialog.ShowAsync();
         }
 
@@ -116,16 +115,16 @@ namespace Wiktionary.ViewModel
         private async void AjouterPublique()
         {
             Webservices ws = new Webservices();
-            string response = await ws.AddDefinition(mot,definition, "gregnico");
+            string response = await ws.AddDefinition(_mot,_definition, "gregnico");
 
             if (response.Equals("\"Success\""))
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en publique!", "Félicitation");
+                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!", "Félicitation");
                 msgDialog.ShowAsync();
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " possède déjà une définition en publique", "Attention");
+                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
                 msgDialog.ShowAsync();
             }   
         }

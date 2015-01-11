@@ -3,7 +3,6 @@ using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Wiktionary.Controllers;
-using Wiktionary.Models;
 
 namespace Wiktionary.ViewModel
 {
@@ -13,20 +12,20 @@ namespace Wiktionary.ViewModel
 
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
-        private string username;
+        private string _username;
         public string Username //username à modifier
         {
             get
             {
-                return username;
+                return _username;
             }
 
             set
             {
-                if (username != value)
+                if (_username != value)
                 {
-                    username = value;
-                    RaisePropertyChanged("Username");
+                    _username = value;
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -44,7 +43,7 @@ namespace Wiktionary.ViewModel
         //Ajoute ou modifie le username
         private void ModifierUsername()
         {
-            MessageDialog msgDialog = new MessageDialog("Le username " + username + " a été modifié avec succès!", "Félicitation");
+            MessageDialog msgDialog = new MessageDialog("Le username " + _username + " a été modifié avec succès!", "Félicitation");
             msgDialog.ShowAsync();
         }
 

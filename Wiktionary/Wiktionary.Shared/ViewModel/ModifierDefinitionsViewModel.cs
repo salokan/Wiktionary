@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Navigation;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SQLite;
@@ -19,46 +15,46 @@ namespace Wiktionary.ViewModel
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
-        private string motDeBase = "";
+        private string _motDeBase = "";
 
-        private string motAModifier;
+        private string _motAModifier;
         public string MotAModifier //TextBlock du mot à modifier
         {
             get
             {
-                return motAModifier;
+                return _motAModifier;
             }
 
             set
             {
-                if (motAModifier != value)
+                if (_motAModifier != value)
                 {
-                    motAModifier = value;
-                    RaisePropertyChanged("MotAModifier");
+                    _motAModifier = value;
+                    RaisePropertyChanged();
                 }
             }
         }
 
-        private string definitionAModifier;
+        private string _definitionAModifier;
         public string DefinitionAModifier //TextBlock de la définition à modifier
         {
             get
             {
-                return definitionAModifier;
+                return _definitionAModifier;
             }
 
             set
             {
-                if (definitionAModifier != value)
+                if (_definitionAModifier != value)
                 {
-                    definitionAModifier = value;
-                    RaisePropertyChanged("DefinitionAModifier");
+                    _definitionAModifier = value;
+                    RaisePropertyChanged();
                 }
             }
         }
 
         // Définition à modifier que l'on récupère de la page précédente
-        private Definitions definition; 
+        private Definitions _definition; 
 
         //Constructeur
         public ModifierDefinitionsViewModel(INavigationService navigationService)
@@ -74,15 +70,15 @@ namespace Wiktionary.ViewModel
         //Modifier la définition
         private void ModifierDefinition()
         {
-            if (definition.TypeDefinition.Equals("locale"))
+            if (_definition.TypeDefinition.Equals("locale"))
             {
                 ModificationLocale();
             }
-            else if (definition.TypeDefinition.Equals("roaming"))
+            else if (_definition.TypeDefinition.Equals("roaming"))
             {
                 ModificationRoaming();
             }
-            else if (definition.TypeDefinition.Equals("publique"))
+            else if (_definition.TypeDefinition.Equals("publique"))
             {
                 ModificationPublique();
             }
@@ -100,7 +96,7 @@ namespace Wiktionary.ViewModel
             int id = 0;
             SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
-            if (!MotAModifier.Equals(motDeBase))
+            if (!MotAModifier.Equals(_motDeBase))
             {
                 var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { MotAModifier });
                 foreach (var item in result)
@@ -118,19 +114,19 @@ namespace Wiktionary.ViewModel
             }
             else
             {
-                var result2 = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { motDeBase });
+                var result2 = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _motDeBase });
                 foreach (var item in result2)
                 {
                     id = item.id;
                 }
 
-                var DefinitionUpdate = await connection.Table<DefinitionsTable>().Where(x => x.id.Equals(id)).FirstOrDefaultAsync();
+                var definitionUpdate = await connection.Table<DefinitionsTable>().Where(x => x.id.Equals(id)).FirstOrDefaultAsync();
 
-                if (DefinitionUpdate != null)
+                if (definitionUpdate != null)
                 {
-                    DefinitionUpdate.Mot = MotAModifier;
-                    DefinitionUpdate.Definition = DefinitionAModifier;
-                    await connection.UpdateAsync(DefinitionUpdate);
+                    definitionUpdate.Mot = MotAModifier;
+                    definitionUpdate.Definition = DefinitionAModifier;
+                    await connection.UpdateAsync(definitionUpdate);
                 }
 
                 MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en local!", "Félicitation");
@@ -140,14 +136,14 @@ namespace Wiktionary.ViewModel
 
         private void ModificationRoaming()
         {
-            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
+            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
             msgDialog.ShowAsync();
             _navigationService.GoBack();
         }
 
         private void ModificationPublique()
         {
-            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
+            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
             msgDialog.ShowAsync();
             _navigationService.GoBack();
         }
@@ -157,16 +153,18 @@ namespace Wiktionary.ViewModel
         {
             if (parameter != null)
             {
-                definition = parameter as Definitions;
+                _definition = parameter as Definitions;
 
-                motDeBase = definition.Mot;
-                MotAModifier = definition.Mot;
-                DefinitionAModifier = definition.Definition;
+                if (_definition != null)
+                {
+                    _motDeBase = _definition.Mot;
+                    MotAModifier = _definition.Mot;
+                    DefinitionAModifier = _definition.Definition;
+                }
             }
         }
 
-        //Permet de savoir si on accède à cette page via un retour
-        public void GetIsBack()
+        public void OnNavigatedTo()
         {
 
         }
@@ -181,6 +179,6 @@ namespace Wiktionary.ViewModel
     {
         void GetParameter(object parameter);
 
-        void GetIsBack();
+        void OnNavigatedTo();
     }
 }

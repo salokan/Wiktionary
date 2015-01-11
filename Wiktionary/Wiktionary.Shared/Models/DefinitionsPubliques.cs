@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Windows.Data.Json;
 
 namespace Wiktionary.Models
 {
     public class DefinitionsPubliques
     {
-         private string word;
-        private string definition;
+         private string _word;
+        private string _definition;
 
         public DefinitionsPubliques()
         {
@@ -25,7 +23,7 @@ namespace Wiktionary.Models
         {
             get
             {
-                return word;
+                return _word;
             }
             set
             {
@@ -33,7 +31,7 @@ namespace Wiktionary.Models
                 {
                     throw new ArgumentNullException("value");
                 }
-                word = value;
+                _word = value;
             }
         }
 
@@ -41,7 +39,7 @@ namespace Wiktionary.Models
         {
             get
             {
-                return definition;
+                return _definition;
             }
             set
             {
@@ -49,7 +47,7 @@ namespace Wiktionary.Models
                 {
                     throw new ArgumentNullException("value");
                 }
-                definition = value;
+                _definition = value;
             }
         }
     }

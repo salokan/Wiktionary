@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace Wiktionary.Models
 {
     [Table("Definitions")]
     public class DefinitionsTable
     {
+        public DefinitionsTable()
+        {
+
+        }
+        public DefinitionsTable(int _id)
+        {
+            id = _id;
+        }
+
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
 
