@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\NavigationService .cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Definitions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DefinitionsTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RoamingStorage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite\SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite\SQLiteAsync.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AjouterDefinitionsViewModel.cs" />

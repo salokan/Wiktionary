@@ -1,4 +1,14 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Xml;
+using System.Xml.Serialization;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -16,6 +26,9 @@ namespace Wiktionary.ViewModel
         public ICommand Roaming { get; set; } //Bouton Ajouter Roaming
         public ICommand Publique { get; set; } //Bouton Ajouter Publique
         public ICommand Retour { get; set; } //Bouton Retour
+
+        Windows.Storage.ApplicationDataContainer roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
+
 
         private string mot;
         public string Mot //Mot à ajouter
@@ -107,6 +120,11 @@ namespace Wiktionary.ViewModel
         //Ajouter un définition roaming
         private void AjouterRoaming()
         {
+            
+            RoamingStorage.Data.Add(new Definitions { Mot = mot, Definition = definition, TypeDefinition = "roaming" });
+            RoamingStorage.Save<Definitions>();
+
+            //roamingSettings.Values["Definitions"] = composite;
             MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en roaming!", "Félicitation");
             msgDialog.ShowAsync();
         }
@@ -123,5 +141,6 @@ namespace Wiktionary.ViewModel
         {
             _navigationService.GoBack();
         }
+
     }
 }

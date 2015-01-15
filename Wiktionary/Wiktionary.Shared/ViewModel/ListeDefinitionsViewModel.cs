@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using Windows.Storage;
 using Windows.UI.Popups;
@@ -16,7 +17,7 @@ using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
 {
-    public class ListeDefinitionsViewModel : ViewModelBase
+    public class ListeDefinitionsViewModel : ViewModelBase, IViewModel
     {
         private readonly INavigationService _navigationService;
         public ObservableCollection<Definitions> Definitions { get; set; } //Liste des définitions à afficher
@@ -28,6 +29,8 @@ namespace Wiktionary.ViewModel
         public ICommand Supprimer { get; set; } //Bouton Supprimer
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
+
+        public bool isBack = false;
 
         private string typeDefinitions;
         public string TypeDefinitions//TextBlock des définitions affichés
@@ -68,22 +71,9 @@ namespace Wiktionary.ViewModel
         //Constructeur
         public ListeDefinitionsViewModel(INavigationService navigationService)
         {
-            GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
-
             _navigationService = navigationService;
 
-            TypeDefinitions = "Toutes";
-            
-            //Liste des définitions à afficher
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
-            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
-
-            Definitions = definitions;
+            initListe();
 
             //Bouton Toutes
             Toutes = new RelayCommand(ToutesDefinitions);
@@ -101,7 +91,26 @@ namespace Wiktionary.ViewModel
             Retour = new RelayCommand(AfficherPagePrecedente);
         }
 
+        //Initialise la liste des définition
+        private async void initListe()
+        {
+            TypeDefinitions = "Toutes";
 
+            definitions.Clear();
+
+            GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            //Liste des définitions à afficher
+
+            //await RoamingStorage.Restore<Definitions>();
+
+            //SetDefList();
+
+            definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
+            definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
+
+            Definitions = definitions;
+        }
 
         //Afficher toutes les définitions
         private void ToutesDefinitions()
@@ -111,10 +120,7 @@ namespace Wiktionary.ViewModel
             definitions.Clear();
 
             GetDefinitionsLocales();
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
+           
             definitions.Add(new Definitions { Mot = "h", Definition = "hhhhhhhhhhhh", TypeDefinition = "publique" });
             definitions.Add(new Definitions { Mot = "i", Definition = "iiiiiiiiiiii", TypeDefinition = "publique" });
             definitions.Add(new Definitions { Mot = "j", Definition = "jjjjjjjjjjjj", TypeDefinition = "publique" });
@@ -138,34 +144,34 @@ namespace Wiktionary.ViewModel
         private async void DefinitionsRoaming()
         {
             TypeDefinitions = "Roaming";
-            
-            definitions.Clear();
 
-            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-      // Get the DataFolder folder.
-        var dataFolder = await local.GetFolderAsync("DataFolder");
-
-        // Get the file.
-        var file = await dataFolder.OpenStreamForReadAsync("test.xml");
-        StreamReader stream = new System.IO.StreamReader(file);
-            
-            XmlSerializer xs = new XmlSerializer(typeof(Definitions));
-            using (var rd = new StreamReader(file))
-            {
-                Definitions p = xs.Deserialize(rd) as Definitions;
-                definitions.Add(new Definitions { Mot = "d", Definition = p.Definition, TypeDefinition = "roaming" });
-            }
-
-            
+          //  definitions.Add(new Definitions { Mot = (List<Definitions>)roamingSettings.Values["test"], Definition = def.Definition, TypeDefinition = "roaming" });
 
             //definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
             //definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
             //definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
             //definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
+            
+
+           await RoamingStorage.Restore<Definitions>();
+
+           SetDefList();
+          
+
+
+        }
+
+        private void SetDefList()
+        {
+            foreach (var item in RoamingStorage.Data)
+            {
+                definitions.Add(item as Definitions);
+            }
             Definitions = definitions;
         }
+
+  
 
         //Afficher toutes les définitions publiques
         private void DefinitionsPubliques()
@@ -248,6 +254,8 @@ namespace Wiktionary.ViewModel
         //Naviguer sur la page précédente
         private void AfficherPagePrecedente()
         {
+            initListe();
+
             _navigationService.GoBack();
         }
 
@@ -279,16 +287,48 @@ namespace Wiktionary.ViewModel
             msgDialog.ShowAsync();
         }
 
-        private void SupprimerRoaming(Definitions def)
+        private async void SupprimerRoaming(Definitions def)
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en roaming!", "Félicitation");
-            msgDialog.ShowAsync();
+            await RoamingStorage.Restore<Definitions>();
+            DelDefList(def.Mot);
+
+            RoamingStorage.Save<Definitions>();
+            //MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en roaming!", "Félicitation");
+            //msgDialog.ShowAsync();
+        }
+
+        private void DelDefList(string mot)
+        {
+            Definitions d = new Definitions();
+            
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions def = item as Definitions;
+                if (def.Mot.Equals(mot))
+                    d = item as Definitions;
+
+            }
+
+                RoamingStorage.Data.Remove(d);
+                Definitions = definitions;
         }
 
         private void SupprimerPublique(Definitions def)
         {
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en public!", "Félicitation");
             msgDialog.ShowAsync();
+        }
+
+        //Récupère le paramètre contenant la définition à modifier
+        public void GetParameter(object parameter)
+        {
+            
+        }
+
+        //Permet de réinitialiser la liste si on arrive depuis un retour
+        public void GetIsBack()
+        {
+            initListe();
         }
     }
 }

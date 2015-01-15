@@ -94,18 +94,6 @@ namespace Wiktionary.ViewModel
             _navigationService.GoBack();
         }
 
-        public void GetParameter(object parameter)
-        {
-            if (parameter != null)
-            {
-                definition = parameter as Definitions;
-
-                motDeBase = definition.Mot;
-                MotAModifier = definition.Mot;
-                DefinitionAModifier = definition.Definition;
-            }
-        }
-
         private async void ModificationLocale()
         {
             bool existeDeja = false;
@@ -163,6 +151,25 @@ namespace Wiktionary.ViewModel
             msgDialog.ShowAsync();
             _navigationService.GoBack();
         }
+
+        //Récupère le paramètre contenant la définition à modifier
+        public void GetParameter(object parameter)
+        {
+            if (parameter != null)
+            {
+                definition = parameter as Definitions;
+
+                motDeBase = definition.Mot;
+                MotAModifier = definition.Mot;
+                DefinitionAModifier = definition.Definition;
+            }
+        }
+
+        //Permet de savoir si on accède à cette page via un retour
+        public void GetIsBack()
+        {
+
+        }
     }
 
     public interface IView
@@ -173,5 +180,7 @@ namespace Wiktionary.ViewModel
     public interface IViewModel
     {
         void GetParameter(object parameter);
+
+        void GetIsBack();
     }
 }

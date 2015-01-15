@@ -8,7 +8,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>46214c70-cea0-48df-9d8e-cc8144715b28</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>20F9ED90B3B5837D738E9CA8B41A805429159EC9FD17EE761E6C08524CE04CEC</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>9139ABD23F875FABBD267C5B4708C3D5A45185AAFC4FAD3DF27F5100E89DB22B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>46214c70-cea0-48df-9d8e-cc8144715b28_1.0.0.0_x86__qahywczbq5y3p</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>46214c70-cea0-48df-9d8e-cc8144715b28_qahywczbq5y3p!App</RegisteredUserModeAppID>
     <RegisteredPackageID>46214c70-cea0-48df-9d8e-cc8144715b28</RegisteredPackageID>
@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-08T13:32:18.475</Modified>
+      <Modified>2015-01-15T14:41:07.701</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.exe">
       <PackagePath>Wiktionary.Windows.exe</PackagePath>
-      <Modified>2015-01-08T13:32:18.080</Modified>
+      <Modified>2015-01-15T16:58:20.794</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -70,35 +70,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Shared\test.xml">
       <PackagePath>test.xml</PackagePath>
-      <Modified>2015-01-08T13:09:15.305</Modified>
+      <Modified>2015-01-08T13:47:11.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.824</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\AjouterDefinitions.xbf">
       <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.824</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ListeDefinitions.xbf">
       <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.824</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.824</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ModifierDefinitions.xbf">
       <PackagePath>Views\ModifierDefinitions.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.825</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\Parametrer.xbf">
       <PackagePath>Views\Parametrer.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.825</Modified>
+      <Modified>2015-01-08T13:45:47.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\RechercherDefinition.xbf">
       <PackagePath>Views\RechercherDefinition.xbf</PackagePath>
-      <Modified>2015-01-08T11:02:46.825</Modified>
+      <Modified>2015-01-08T13:45:47.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>
@@ -106,7 +106,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-01-08T13:32:18.248</Modified>
+      <Modified>2015-01-15T16:55:25.514</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

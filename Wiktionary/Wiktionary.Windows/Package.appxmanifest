@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="46214c70-cea0-48df-9d8e-cc8144715b28"
-            Publisher="CN=Nicolas"
-            Version="1.0.0.0" />
+  <!--
+  <Identity Name="9430Antoine.Wiktionary" Publisher="CN=C78E659D-A1E6-4649-BE20-F84D1F1093E2" Version="1.0.0.0" />
+-->
+  <Identity Name="46214c70-cea0-48df-9d8e-cc8144715b28" Publisher="CN=Nicolas" Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>Wiktionary.Windows</DisplayName>
