@@ -121,12 +121,36 @@ namespace Wiktionary.ViewModel
         private void AjouterRoaming()
         {
             
-            RoamingStorage.Data.Add(new Definitions { Mot = mot, Definition = definition, TypeDefinition = "roaming" });
+            
+            AddDefList(mot, definition);
             RoamingStorage.Save<Definitions>();
 
             //roamingSettings.Values["Definitions"] = composite;
-            MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en roaming!", "Félicitation");
-            msgDialog.ShowAsync();
+            //MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definition + " a été ajouté avec succès en roaming!", "Félicitation");
+            //msgDialog.ShowAsync();
+        }
+
+        private void AddDefList(string mot, string definitionAdd)
+        {
+            Boolean motExiste = false;
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions def = item as Definitions;
+                if (def.Mot.Equals(mot))
+                {
+                        motExiste = true;
+                        MessageDialog msgDialog = new MessageDialog("Ajout échoué, le mot existe déjà dans la base");
+                        msgDialog.ShowAsync();
+                }
+            }
+
+            if (motExiste == false)
+            {
+                RoamingStorage.Data.Add(new Definitions { Mot = mot, Definition = definitionAdd, TypeDefinition = "roaming" });
+                MessageDialog msgDialog = new MessageDialog("Le mot " + mot + " : " + definitionAdd + " a été ajouté avec succès en roaming!", "Félicitation");
+                msgDialog.ShowAsync();
+            }
         }
 
         //Ajouter un définition publique

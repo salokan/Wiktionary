@@ -138,11 +138,52 @@ namespace Wiktionary.ViewModel
             }
         }
 
-        private void ModificationRoaming()
+        private async void ModificationRoaming()
         {
-            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
-            msgDialog.ShowAsync();
+            await RoamingStorage.Restore<Definitions>();
+            ModDefList(motDeBase, MotAModifier, DefinitionAModifier);
+
+            RoamingStorage.Save<Definitions>();
+
+            //MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
+            //msgDialog.ShowAsync();
             _navigationService.GoBack();
+        }
+
+        private void ModDefList(string mot, string MotAModifie, string definitionModifie)
+        {
+            Definitions d = new Definitions();
+            Boolean itemTrouve = false;
+            Boolean motExiste = false;
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions def = item as Definitions;
+                if (MotAModifier != motDeBase)
+                {
+                    if (def.Mot.Equals(MotAModifier))
+                    {
+                        motExiste = true;
+                        MessageDialog msgDialog = new MessageDialog("Modification échoué");
+                        msgDialog.ShowAsync();
+                    }
+                }
+
+                if (def.Mot.Equals(mot))
+                {
+                    d = item as Definitions;
+                    itemTrouve = true;
+                }
+
+            }
+
+            if (itemTrouve && motExiste == false)
+            {
+                RoamingStorage.Data.Remove(d);
+                RoamingStorage.Data.Add(new Definitions { Mot = MotAModifie, Definition = definitionModifie, TypeDefinition = "roaming" });
+                MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
+                msgDialog.ShowAsync();
+            }
         }
 
         private void ModificationPublique()
