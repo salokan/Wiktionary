@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="21e22a5c-0a63-4276-91c4-de8e952d950a" Publisher="CN=Nicolas" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="9430Antoine.Wiktionary" Publisher="CN=C78E659D-A1E6-4649-BE20-F84D1F1093E2" Version="1.0.0.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="21e22a5c-0a63-4276-91c4-de8e952d950a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Wiktionary.WindowsPhone</DisplayName>
@@ -23,8 +23,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="Wiktionary.WindowsPhone.exe" EntryPoint="Wiktionary.WindowsPhone.App">
-      <m3:VisualElements DisplayName="Wiktionary.WindowsPhone" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Wiktionary.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
-        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png" />
+      <m3:VisualElements DisplayName="Wiktionary.WindowsPhone" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Wiktionary.WindowsPhone" ForegroundText="light" BackgroundColor="transparent" ToastCapable="true">
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"></m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
       </m3:VisualElements>
     </Application>

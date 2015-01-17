@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle Application vide, consultez la page http://go.microsoft.com/fwlink/?LinkId=234227
+using Wiktionary.Models;
 using Wiktionary.Views;
 
 namespace Wiktionary
@@ -26,6 +27,8 @@ namespace Wiktionary
         /// </summary>
         public App()
         {
+            Notifications n = new Notifications();
+            n.StartListening();
             InitializeComponent();
             Suspending += OnSuspending;
         }
@@ -44,6 +47,17 @@ namespace Wiktionary
                 DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+            if (e.TileId.Equals("App") && e.Arguments != null)
+            {
+                // Démarrage depuis une notification Toast
+                // On peut gérer ici le detailsPage&2 envoyé précédemment
+                string arguments = e.Arguments;
+
+                Notifications n = new Notifications();
+                n.AfficherNotification(arguments);
+            }
+
 
             Frame rootFrame = Window.Current.Content as Frame;
 

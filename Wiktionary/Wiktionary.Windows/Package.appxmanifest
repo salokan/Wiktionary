@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="46214c70-cea0-48df-9d8e-cc8144715b28" Publisher="CN=Nicolas" Version="1.0.0.0" />
+  <Identity Name="9430Antoine.Wiktionary" Publisher="CN=C78E659D-A1E6-4649-BE20-F84D1F1093E2" Version="1.0.0.0" />
   <Properties>
     <DisplayName>Wiktionary.Windows</DisplayName>
     <PublisherDisplayName>Nicolas</PublisherDisplayName>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Wiktionary.Windows.App">
-      <m2:VisualElements DisplayName="Wiktionary.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Wiktionary.Windows" ForegroundText="light" BackgroundColor="#464646">
+      <m2:VisualElements DisplayName="Wiktionary.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Wiktionary.Windows" ForegroundText="light" BackgroundColor="#464646" ToastCapable="true">
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
     </Application>

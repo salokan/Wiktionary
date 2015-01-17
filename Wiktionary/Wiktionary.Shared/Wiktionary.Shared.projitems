@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Definitions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DefinitionsPubliques.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DefinitionsTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Notifications.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Webservices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite\SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite\SQLiteAsync.cs" />
