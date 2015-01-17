@@ -22,15 +22,8 @@ namespace Wiktionary.Models
             rootFilter.CacheControl.WriteBehavior = HttpCacheWriteBehavior.NoCache;
             _httpClient = new HttpClient(rootFilter);
 
-            // Add a user-agent header
             var headers = _httpClient.DefaultRequestHeaders;
 
-            // HttpProductInfoHeaderValueCollection is a collection of 
-            // HttpProductInfoHeaderValue items used for the user-agent header
-
-            // The safe way to check a header value from the user is the TryParseAdd method
-            // Since we know this header is okay, we use ParseAdd with will throw an exception
-            // with a bad value 
             headers.UserAgent.ParseAdd("ie");
             headers.UserAgent.ParseAdd("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)");
         }
