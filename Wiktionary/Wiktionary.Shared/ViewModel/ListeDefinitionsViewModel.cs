@@ -67,20 +67,13 @@ namespace Wiktionary.ViewModel
         {
             _navigationService = navigationService;
 
-            //Bouton Toutes
-            Toutes = new RelayCommand(ToutesDefinitions);
-            //Bouton Locales
-            Locales = new RelayCommand(DefinitionsLocales);
-            //Bouton Roaming
-            Roaming = new RelayCommand(DefinitionsRoaming);
-            //Bouton Publiques
-            Publiques = new RelayCommand(DefinitionsPubliques);
-            //Bouton Supprimer
-            Supprimer = new RelayCommand(SupprimerDefinition);
-            //Bouton Modifier
-            Modifier = new RelayCommand(AfficherModifierDefinition);
-            //Bouton Retour
-            Retour = new RelayCommand(AfficherPagePrecedente);
+            Toutes = new RelayCommand(ToutesDefinitions); //Bouton Toutes
+            Locales = new RelayCommand(DefinitionsLocales); //Bouton Locales
+            Roaming = new RelayCommand(DefinitionsRoaming); //Bouton Roaming
+            Publiques = new RelayCommand(DefinitionsPubliques); //Bouton Publiques
+            Supprimer = new RelayCommand(SupprimerDefinition); //Bouton Supprimer
+            Modifier = new RelayCommand(AfficherModifierDefinition); //Bouton Modifier
+            Retour = new RelayCommand(AfficherPagePrecedente); //Bouton Retour
         }
 
         //Initialise la liste des définition
@@ -91,16 +84,13 @@ namespace Wiktionary.ViewModel
             definitions.Clear();
 
             GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            GetDefinitionsRoaming(); //Insère dans la liste les définitions roaming
             GetDefinitionsPubliques(); //Insère dans la liste les définitions du webservice
-            //Liste des définitions à afficher
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             Definitions = definitions;
         }
 
+        #region Afficher les définitions
         //Afficher toutes les définitions
         private void ToutesDefinitions()
         {
@@ -109,11 +99,8 @@ namespace Wiktionary.ViewModel
             definitions.Clear();
 
             GetDefinitionsLocales(); //Insère dans la liste les définitions de la base de données
+            GetDefinitionsRoaming(); //Insère dans la liste les définitions roaming
             GetDefinitionsPubliques(); //Insère dans la liste les définitions du webservice
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
 
             Definitions = definitions;
         }
@@ -137,10 +124,7 @@ namespace Wiktionary.ViewModel
 
             definitions.Clear();
 
-            definitions.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitions.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
+            GetDefinitionsRoaming(); //Insère dans la liste les définitions roaming
 
             Definitions = definitions;
         }
@@ -156,17 +140,61 @@ namespace Wiktionary.ViewModel
 
             Definitions = definitions;
         }
+        #endregion
 
-        //Naviguer sur la page Modifier
-        private void AfficherModifierDefinition()
+        #region Récupérer les définitons
+        //Permet de récupérer toutes les définitions dans la base de données
+        private async void GetDefinitionsLocales()
         {
-            if (_motSelectionne != null)
-            {
-                _navigationService.Navigate(typeof(ModifierDefinitions), _motSelectionne);
-            }
-            
-        } 
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
+            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions");
+            foreach (var item in result)
+            {
+                definitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
+            }
+        }
+
+        //Permet de récupérer toutes les définitions roaming
+        private async void GetDefinitionsRoaming()
+        {
+            await RoamingStorage.Restore<Definitions>();
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                definitions.Add(item as Definitions);
+            }
+        }
+
+        //Permet de récupérer toutes les définitions via le webservice
+        private async void GetDefinitionsPubliques()
+        {
+            Webservices ws = new Webservices();
+
+            string response = await ws.GetAllDefinitions();
+
+            string definitionsJson = "{\"definitions\":" + response + "}";
+
+            JsonObject jsonObject = JsonObject.Parse(definitionsJson);
+
+            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
+
+            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
+            {
+                if (jsonValue.ValueType == JsonValueType.Object)
+                {
+                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
+                }
+            }
+
+            foreach (DefinitionsPubliques dp in definitionsPubliques)
+            {
+                definitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
+            }
+        }
+        #endregion
+
+        #region Supprimer les définitions
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
         {
@@ -221,51 +249,6 @@ namespace Wiktionary.ViewModel
             }
         }
 
-        //Naviguer sur la page précédente
-        private void AfficherPagePrecedente()
-        {
-            _navigationService.GoBack();
-        }
-
-        //Permet de récupérer toutes les définitions dans la base de données
-        private async void GetDefinitionsLocales()
-        {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
-
-            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions");
-            foreach (var item in result)
-            {
-                definitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
-            }
-        }
-
-        //Permet de récupérer toutes les définitions via le webservice
-        private async void GetDefinitionsPubliques()
-        {
-            Webservices ws = new Webservices();
-
-            string response = await ws.GetAllDefinitions();
-
-            string definitionsJson = "{\"definitions\":" + response + "}";
-
-            JsonObject jsonObject = JsonObject.Parse(definitionsJson);
-
-            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
-
-            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
-            {
-                if (jsonValue.ValueType == JsonValueType.Object)
-                {
-                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
-                }
-            }
-
-            foreach (DefinitionsPubliques dp in definitionsPubliques)
-            {
-                definitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
-            }
-        }
-
         //Supprimer de la base la Définition en paramètre
         private async void SupprimerLocale(Definitions def)
         {
@@ -284,8 +267,22 @@ namespace Wiktionary.ViewModel
 
         private void SupprimerRoaming(Definitions def)
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en roaming!", "Félicitation");
-            msgDialog.ShowAsync();
+            RoamingStorage.Restore<Definitions>();
+
+            Definitions d = new Definitions();
+            string mot = def.Mot;
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions defRoaming = item as Definitions;
+                if (defRoaming != null && defRoaming.Mot.Equals(mot))
+                    d = item as Definitions;
+
+            }
+
+            RoamingStorage.Data.Remove(d);
+
+            RoamingStorage.Save<Definitions>();
         }
 
         //Supprime la définition avec les webservices
@@ -308,6 +305,23 @@ namespace Wiktionary.ViewModel
                 MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition + " donc vous ne pouvez pas le supprimer!", "Attention");
                 msgDialog.ShowAsync();
             } 
+        }
+        #endregion
+
+        //Naviguer sur la page Modifier
+        private void AfficherModifierDefinition()
+        {
+            if (_motSelectionne != null)
+            {
+                _navigationService.Navigate(typeof(ModifierDefinitions), _motSelectionne);
+            }
+
+        } 
+
+        //Naviguer sur la page précédente
+        private void AfficherPagePrecedente()
+        {
+            _navigationService.GoBack();
         }
 
         //Récupère le paramètre contenant la définition à modifier

@@ -135,11 +135,50 @@ namespace Wiktionary.ViewModel
             }
         }
 
-        private void ModificationRoaming()
+        private async void ModificationRoaming()
         {
-            MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
-            msgDialog.ShowAsync();
+            RoamingStorage.Restore<Definitions>();
+            ModDefList(_motDeBase, MotAModifier, DefinitionAModifier);
+
+            RoamingStorage.Save<Definitions>();
         }
+
+        private void ModDefList(string mot, string motAModifie, string definitionModifie)
+        {
+            Definitions d = new Definitions();
+            bool itemTrouve = false;
+            bool motExiste = false;
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions def = item as Definitions;
+                if (MotAModifier != _motDeBase)
+                {
+                    if (def != null && def.Mot.Equals(MotAModifier))
+                    {
+                        motExiste = true;
+                        MessageDialog msgDialog = new MessageDialog("Le mot " + motAModifie + " possède déjà une définition en locale", "Attention");
+                        msgDialog.ShowAsync();
+                    }
+                }
+
+                if (def != null && def.Mot.Equals(mot))
+                {
+                    d = item as Definitions;
+                    itemTrouve = true;
+                }
+
+            }
+
+            if (itemTrouve && motExiste == false)
+            {
+                RoamingStorage.Data.Remove(d);
+                RoamingStorage.Data.Add(new Definitions { Mot = motAModifie, Definition = definitionModifie, TypeDefinition = "roaming" });
+                MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
+                msgDialog.ShowAsync();
+            }
+        }
+
 
         //On modifie la définition via le web service
         private async void ModificationPublique()

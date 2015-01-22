@@ -24,8 +24,6 @@ namespace Wiktionary.ViewModel
         public ICommand Modifier { get; set; } //Bouton Modifier
         public ICommand Retour { get; set; } //Bouton Retour
 
-        ObservableCollection<Definitions> definitionsRoaming = new ObservableCollection<Definitions>();
-
         private string _motRecherche;
         public string MotRecherche //TextBox du mot dont on veut trouver la définition
         {
@@ -69,14 +67,10 @@ namespace Wiktionary.ViewModel
 
             DefinitionsRecherchees = definitionsRecherchees;
 
-            //Bouton Rechercher
-            Rechercher = new RelayCommand(RechercherDefinition);
-            //Bouton Modifier
-            Modifier = new RelayCommand(AfficherModifierDefinition);
-            //Bouton Supprimer
-            Supprimer = new RelayCommand(SupprimerDefinition);
-            //Bouton Retour
-            Retour = new RelayCommand(AfficherPagePrecedente);
+            Rechercher = new RelayCommand(RechercherDefinition); //Bouton Rechercher
+            Modifier = new RelayCommand(AfficherModifierDefinition); //Bouton Modifier
+            Supprimer = new RelayCommand(SupprimerDefinition); //Bouton Supprimer
+            Retour = new RelayCommand(AfficherPagePrecedente); //Bouton Retour
         }
 
         //Permet de récupérer toutes les définitions et de les insérer dans une même liste
@@ -86,25 +80,64 @@ namespace Wiktionary.ViewModel
             MotRecherche = "";
             toutesDefinitions.Clear();
 
-            //Définitions locales
-            GetDefinitionsLocales();
+            GetDefinitionsLocales(); //Définitions locales
+            GetDefinitionsRoaming(); //Définitions roaming
+            GetDefinitionsPubliques(); //Définitions publiques
+        }
 
-            //Définitions roaming
-            definitionsRoaming.Add(new Definitions { Mot = "d", Definition = "dddddddddddd", TypeDefinition = "roaming" });
-            definitionsRoaming.Add(new Definitions { Mot = "e", Definition = "eeeeeeeeeeee", TypeDefinition = "roaming" });
-            definitionsRoaming.Add(new Definitions { Mot = "f", Definition = "ffffffffffff", TypeDefinition = "roaming" });
-            definitionsRoaming.Add(new Definitions { Mot = "g", Definition = "gggggggggggg", TypeDefinition = "roaming" });
+        #region Récupérer les définitons
+        //Permet de récupérer toutes les définitions dans la base de données
+        private async void GetDefinitionsLocales()
+        {
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
-            //Définitions publiques
-            GetDefinitionsPubliques();
-
-            //Toutes définitions
-            foreach (Definitions dRoaming in definitionsRoaming)
+            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions");
+            foreach (var item in result)
             {
-                toutesDefinitions.Add(dRoaming);
+                toutesDefinitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
             }
         }
 
+        //Permet de récupérer toutes les définitions roaming
+        private async void GetDefinitionsRoaming()
+        {
+            await RoamingStorage.Restore<Definitions>();
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                toutesDefinitions.Add(item as Definitions);
+            }
+        }
+
+        //Permet de récupérer toutes les définitions via le webservice
+        private async void GetDefinitionsPubliques()
+        {
+            Webservices ws = new Webservices();
+
+            string response = await ws.GetAllDefinitions();
+
+            string definitionsJson = "{\"definitions\":" + response + "}";
+
+            JsonObject jsonObject = JsonObject.Parse(definitionsJson);
+
+            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
+
+            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
+            {
+                if (jsonValue.ValueType == JsonValueType.Object)
+                {
+                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
+                }
+            }
+
+            foreach (DefinitionsPubliques dp in definitionsPubliques)
+            {
+                toutesDefinitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
+            }
+        }
+        #endregion
+
+        #region Rechercher une définition
         //Rechercher une définition
         private void RechercherDefinition()
         {
@@ -117,17 +150,9 @@ namespace Wiktionary.ViewModel
 
             DefinitionsRecherchees = definitionsRecherchees;
         }
+        #endregion
 
-        //Naviguer sur la page Modifier
-        private void AfficherModifierDefinition()
-        {
-            if (_motSelectionne != null)
-            {
-                _navigationService.Navigate(typeof(ModifierDefinitions), _motSelectionne);
-            }
-
-        } 
-
+        #region Supprimer les définitions
         //Supprimer la définition sélectionnée
         private void SupprimerDefinition()
         {
@@ -182,52 +207,7 @@ namespace Wiktionary.ViewModel
                 msgDialog.ShowAsync();
             }
         }
-
-        //Naviguer sur la page précédente
-        private void AfficherPagePrecedente()
-        {
-            _navigationService.GoBack();
-        }
-
-        //Permet de récupérer toutes les définitions dans la base de données
-        private async void GetDefinitionsLocales()
-        {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
-
-            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions");
-            foreach (var item in result)
-            {
-                toutesDefinitions.Add(new Definitions { Mot = item.Mot, Definition = item.Definition, TypeDefinition = "locale" });
-            }
-        }
-
-        //Permet de récupérer toutes les définitions via le webservice
-        private async void GetDefinitionsPubliques()
-        {
-            Webservices ws = new Webservices();
-
-            string response = await ws.GetAllDefinitions();
-
-            string definitionsJson = "{\"definitions\":" + response + "}";
-
-            JsonObject jsonObject = JsonObject.Parse(definitionsJson);
-
-            List<DefinitionsPubliques> definitionsPubliques = new List<DefinitionsPubliques>();
-
-            foreach (IJsonValue jsonValue in jsonObject.GetNamedArray("definitions"))
-            {
-                if (jsonValue.ValueType == JsonValueType.Object)
-                {
-                    definitionsPubliques.Add(new DefinitionsPubliques(jsonValue.GetObject()));
-                }
-            }
-
-            foreach (DefinitionsPubliques dp in definitionsPubliques)
-            {
-                toutesDefinitions.Add(new Definitions { Mot = dp.Word, Definition = dp.Definition, TypeDefinition = "publique" });
-            }
-        }
-
+        
         //Supprimer de la base la Définition en paramètre
         private async void SupprimerLocale(Definitions def)
         {
@@ -246,8 +226,22 @@ namespace Wiktionary.ViewModel
 
         private void SupprimerRoaming(Definitions def)
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en roaming!", "Félicitation");
-            msgDialog.ShowAsync();
+            RoamingStorage.Restore<Definitions>();
+
+            Definitions d = new Definitions();
+            string mot = def.Mot;
+
+            foreach (var item in RoamingStorage.Data)
+            {
+                Definitions defRoaming = item as Definitions;
+                if (defRoaming != null && defRoaming.Mot.Equals(mot))
+                    d = item as Definitions;
+
+            }
+
+            RoamingStorage.Data.Remove(d);
+
+            RoamingStorage.Save<Definitions>();
         }
 
         //Supprime la définition via le web service
@@ -271,6 +265,22 @@ namespace Wiktionary.ViewModel
                 MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition + " donc vous ne pouvez pas le supprimer!", "Attention");
                 msgDialog.ShowAsync();
             } 
+        }
+        #endregion
+
+        //Naviguer sur la page Modifier
+        private void AfficherModifierDefinition()
+        {
+            if (_motSelectionne != null)
+            {
+                _navigationService.Navigate(typeof(ModifierDefinitions), _motSelectionne);
+            }
+        }
+
+        //Naviguer sur la page précédente
+        private void AfficherPagePrecedente()
+        {
+            _navigationService.GoBack();
         }
 
         //Récupère le paramètre contenant la définition à modifier

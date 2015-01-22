@@ -117,7 +117,6 @@ C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wik
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\bin\x86\Debug\ru\System.Spatial.resources.dll
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\bin\x86\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\bin\x86\Debug\zh-Hant\System.Spatial.resources.dll
-C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Wiktionary.WindowsPhone.csprojResolveAssemblyReference.cache
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Data.Edm\en-US\Microsoft.Data.Edm.resw
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Data.Edm\de\Microsoft.Data.Edm.resw
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.WindowsPhone\obj\x86\Debug\Microsoft.Data.Edm\es\Microsoft.Data.Edm.resw

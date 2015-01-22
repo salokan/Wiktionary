@@ -58,76 +58,117 @@ namespace Wiktionary.ViewModel
         {
             _navigationService = navigationService;
 
-            //Bouton Locale
-            Locale = new RelayCommand(AjouterLocale);
-
-            //Bouton Roaming
-            Roaming = new RelayCommand(AjouterRoaming);
-
-            //Bouton Publique
-            Publique = new RelayCommand(AjouterPublique);
-
-            //Bouton Retour
-            Retour = new RelayCommand(AfficherPagePrecedente);
+            Locale = new RelayCommand(AjouterLocale); //Bouton Locale
+            Roaming = new RelayCommand(AjouterRoaming); //Bouton Roaming
+            Publique = new RelayCommand(AjouterPublique); //Bouton Publique
+            Retour = new RelayCommand(AfficherPagePrecedente); //Bouton Retour
         }
 
+        #region Ajouter Définition Locale
         //Ajouter un définition locale
         private async void AjouterLocale()
         {
-            bool existeDeja = false;
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
-
-            var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _mot });
-            foreach (var item in result)
+            if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
             {
-                if (item.Mot.Equals(_mot))
-                    existeDeja = true;
-            }
+                bool existeDeja = false;
+                SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
 
-            if (existeDeja)
-            {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en locale", "Attention");
-                msgDialog.ShowAsync();
+                var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _mot });
+                foreach (var item in result)
+                {
+                    if (item.Mot.Equals(_mot))
+                        existeDeja = true;
+                }
+
+                if (existeDeja)
+                {
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en locale", "Attention");
+                    msgDialog.ShowAsync();
+                }
+                else
+                {
+                    var definitionInsert = new DefinitionsTable
+                    {
+                        Mot = _mot,
+                        Definition = _definition
+                    };
+                    await connection.InsertAsync(definitionInsert);
+
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en local!", "Félicitation");
+                    msgDialog.ShowAsync();
+                }
             }
             else
             {
-                var definitionInsert = new DefinitionsTable
-                {
-                    Mot = _mot,
-                    Definition = _definition
-                };
-                await connection.InsertAsync(definitionInsert);
-
-                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en local!", "Félicitation");
-                msgDialog.ShowAsync();
-            }
-            
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
+                msgDialog.ShowAsync(); 
+            }   
         }
+        #endregion
 
+        #region Ajouter Définition Roaming
         //Ajouter un définition roaming
-        private void AjouterRoaming()
+        private async void AjouterRoaming()
         {
-            MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en roaming!", "Félicitation");
-            msgDialog.ShowAsync();
-        }
+            if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
+            {
+                bool motExiste = false;
 
+                foreach (var item in RoamingStorage.Data)
+                {
+                    Definitions def = item as Definitions;
+                    if (def != null && def.Mot.Equals(_mot))
+                    {
+                        motExiste = true;
+                        MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en roaming", "Attention");
+                        msgDialog.ShowAsync();
+                    }
+                }
+
+                if (motExiste == false)
+                {
+                    RoamingStorage.Data.Add(new Definitions { Mot = _mot, Definition = _definition, TypeDefinition = "roaming" });
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en roaming!", "Félicitation");
+                    msgDialog.ShowAsync();
+                }
+
+                await RoamingStorage.Save<Definitions>();
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
+                msgDialog.ShowAsync(); 
+            }  
+        }
+        #endregion
+
+        #region Ajouter Définition Publique
         //Ajouter un définition publique
         private async void AjouterPublique()
         {
-            Webservices ws = new Webservices();
-            string response = await ws.AddDefinition(_mot,_definition, "gregnico");
-
-            if (response.Equals("\"Success\""))
+            if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!", "Félicitation");
-                msgDialog.ShowAsync();
+                Webservices ws = new Webservices();
+                string response = await ws.AddDefinition(_mot, _definition, "gregnico");
+
+                if (response.Equals("\"Success\""))
+                {
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!", "Félicitation");
+                    msgDialog.ShowAsync();
+                }
+                else
+                {
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
+                    msgDialog.ShowAsync();
+                }
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
-                msgDialog.ShowAsync();
-            }   
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
+                msgDialog.ShowAsync(); 
+            }     
         }
+        #endregion
 
         //Naviguer sur la page précédente
         private void AfficherPagePrecedente()
