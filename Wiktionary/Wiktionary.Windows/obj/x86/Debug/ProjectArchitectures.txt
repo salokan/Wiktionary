@@ -1,1 +1,1 @@
-C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\Wiktionary.Windows.csproj;x86
+C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\Wiktionary.Windows.csproj;x86

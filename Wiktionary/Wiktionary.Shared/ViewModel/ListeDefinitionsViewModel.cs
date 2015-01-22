@@ -14,6 +14,8 @@ namespace Wiktionary.ViewModel
 {
     public class ListeDefinitionsViewModel : ViewModelBase, IViewModel
     {
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         private readonly INavigationService _navigationService;
         public ObservableCollection<Definitions> Definitions { get; set; } //Liste des définitions à afficher
         private ObservableCollection<Definitions> definitions = new ObservableCollection<Definitions>();
@@ -289,7 +291,7 @@ namespace Wiktionary.ViewModel
         private async void SupprimerPublique(Definitions def)
         {
             Webservices ws = new Webservices();
-            string response = await ws.DeleteDefinition(def.Mot, "gregnico");
+            string response = await ws.DeleteDefinition(def.Mot, localSettings.Values["Username"].ToString());
 
             if (response.Equals("\"Success\""))
             {

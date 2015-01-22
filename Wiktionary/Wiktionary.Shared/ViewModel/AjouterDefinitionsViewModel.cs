@@ -10,6 +10,8 @@ namespace Wiktionary.ViewModel
 {
     public class AjouterDefinitionsViewModel : ViewModelBase
     {
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         private readonly INavigationService _navigationService;
 
         public ICommand Locale { get; set; } //Bouton Ajouter Locale
@@ -149,7 +151,7 @@ namespace Wiktionary.ViewModel
             if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
             {
                 Webservices ws = new Webservices();
-                string response = await ws.AddDefinition(_mot, _definition, "gregnico");
+                string response = await ws.AddDefinition(_mot, _definition, localSettings.Values["Username"].ToString());
 
                 if (response.Equals("\"Success\""))
                 {

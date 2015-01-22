@@ -10,6 +10,8 @@ namespace Wiktionary.ViewModel
 {
     public class ModifierDefinitionsViewModel : ViewModelBase, IViewModel
     {
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         private readonly INavigationService _navigationService;
 
         public ICommand Modifier { get; set; } //Bouton Modifier
@@ -198,10 +200,10 @@ namespace Wiktionary.ViewModel
             if (!existeDeja)
             {
                 //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
-                string response2 = await ws.DeleteDefinition(_motDeBase, "gregnico");
+                string response2 = await ws.DeleteDefinition(_motDeBase, localSettings.Values["Username"].ToString());
                 if (response2.Equals("\"Success\""))
                 {
-                    string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, "gregnico");
+                    string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, localSettings.Values["Username"].ToString());
 
                     if (response3.Equals("\"Success\""))
                     {

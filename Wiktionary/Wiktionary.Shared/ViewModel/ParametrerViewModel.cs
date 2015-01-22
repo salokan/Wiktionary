@@ -6,8 +6,10 @@ using Wiktionary.Controllers;
 
 namespace Wiktionary.ViewModel
 {
-    public class ParametrerViewModel : ViewModelBase
+    public class ParametrerViewModel : ViewModelBase, IViewModel
     {
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         private readonly INavigationService _navigationService;
 
         public ICommand Modifier { get; set; } //Bouton Modifier
@@ -43,6 +45,7 @@ namespace Wiktionary.ViewModel
         //Ajoute ou modifie le username
         private void ModifierUsername()
         {
+            localSettings.Values["Username"] = _username;
             MessageDialog msgDialog = new MessageDialog("Le username " + _username + " a été modifié avec succès!", "Félicitation");
             msgDialog.ShowAsync();
         }
@@ -53,6 +56,22 @@ namespace Wiktionary.ViewModel
             _navigationService.GoBack();
         }
 
-        
+        //Récupère le paramètre contenant la définition à modifier
+        public void GetParameter(object parameter)
+        {
+
+        }
+
+        //Permet de réinitialiser la liste si on arrive depuis un retour
+        public void OnNavigatedTo()
+        {
+            InitUserName();
+        }
+
+        private void InitUserName()
+        {
+            if (localSettings.Values["Username"].ToString() != null)
+                Username = localSettings.Values["Username"].ToString();
+        }
     }
 }
