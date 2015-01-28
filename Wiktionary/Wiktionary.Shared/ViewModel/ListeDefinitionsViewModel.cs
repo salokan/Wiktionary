@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.Data.Json;
@@ -196,7 +197,7 @@ namespace Wiktionary.ViewModel
 
         #region Supprimer les définitions
         //Supprimer la définition sélectionnée
-        private void SupprimerDefinition()
+        private async void SupprimerDefinition()
         {
             if (_motSelectionne != null)
             {
@@ -245,7 +246,7 @@ namespace Wiktionary.ViewModel
                                                            {
 
                                                            }));
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
         }
 
@@ -262,12 +263,12 @@ namespace Wiktionary.ViewModel
             }
 
             MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en locale!", "Félicitation");
-            msgDialog.ShowAsync();
+            await msgDialog.ShowAsync();
         }
 
-        private void SupprimerRoaming(Definitions def)
+        private async void SupprimerRoaming(Definitions def)
         {
-            RoamingStorage.Restore<Definitions>();
+            await RoamingStorage.Restore<Definitions>();
 
             Definitions d = new Definitions();
             string mot = def.Mot;
@@ -282,7 +283,7 @@ namespace Wiktionary.ViewModel
 
             RoamingStorage.Data.Remove(d);
 
-            RoamingStorage.Save<Definitions>();
+            await RoamingStorage.Save<Definitions>();
         }
 
         //Supprime la définition avec les webservices
@@ -298,12 +299,12 @@ namespace Wiktionary.ViewModel
                 Definitions = definitions;
 
                 MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en publique!", "Félicitation");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
             else
             {
                 MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition + " donc vous ne pouvez pas le supprimer!", "Attention");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             } 
         }
         #endregion

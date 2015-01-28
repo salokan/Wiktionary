@@ -146,6 +146,7 @@ C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wik
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\System.Spatial.pri
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\System.Spatial\qualifiers.txt
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.WindowsAzure.Messaging.Managed.pri.xml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Wiktionary.Windows.csprojResolveAssemblyReference.cache
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Data.Edm\layout.resfiles
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Data.Edm\layout.resfiles.intermediate
 C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\Microsoft.Data.Edm\Resources.resfiles
