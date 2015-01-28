@@ -46,9 +46,17 @@ namespace Wiktionary.ViewModel
         //Ajoute ou modifie le username
         private async void ModifierUsername()
         {
-            localSettings.Values["Username"] = _username;
-            MessageDialog msgDialog = new MessageDialog("Le username " + _username + " a été modifié avec succès!", "Félicitation");
-            await msgDialog.ShowAsync();
+            if (!System.Text.RegularExpressions.Regex.IsMatch(_username, "^[a-zA-Z]+$"))
+            {
+                MessageDialog msgDialog = new MessageDialog("Le username ne doit être composé que de lettres", "Erreur");
+                await msgDialog.ShowAsync();
+            }
+            else
+            {
+                localSettings.Values["Username"] = _username;
+                MessageDialog msgDialog = new MessageDialog("Le username " + _username + " a été modifié avec succès!", "Félicitation");
+                await msgDialog.ShowAsync();
+            }       
         }
 
         //Naviguer sur la page précédente
@@ -71,7 +79,7 @@ namespace Wiktionary.ViewModel
 
         private void InitUserName()
         {
-            if (localSettings.Values["Username"].ToString() != null)
+            if (localSettings.Values["Username"] != null)
                 Username = localSettings.Values["Username"].ToString();
         }
     }

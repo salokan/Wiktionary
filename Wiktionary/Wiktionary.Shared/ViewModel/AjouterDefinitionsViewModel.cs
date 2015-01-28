@@ -149,27 +149,42 @@ namespace Wiktionary.ViewModel
         //Ajouter un définition publique
         private async void AjouterPublique()
         {
-            if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
+            if (localSettings.Values["Username"] != null)
             {
-                Webservices ws = new Webservices();
-                string response = await ws.AddDefinition(_mot, _definition, localSettings.Values["Username"].ToString());
-
-                if (response.Equals("\"Success\""))
+                if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))
                 {
-                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!", "Félicitation");
-                    await msgDialog.ShowAsync();
+                    Webservices ws = new Webservices();
+                    string response =
+                        await ws.AddDefinition(_mot, _definition, localSettings.Values["Username"].ToString());
+
+                    if (response.Equals("\"Success\""))
+                    {
+                        MessageDialog msgDialog =
+                            new MessageDialog(
+                                "Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!",
+                                "Félicitation");
+                        await msgDialog.ShowAsync();
+                    }
+                    else
+                    {
+                        MessageDialog msgDialog =
+                            new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
+                        await msgDialog.ShowAsync();
+                    }
                 }
                 else
                 {
-                    MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
+                    MessageDialog msgDialog = new MessageDialog(
+                        "Le mot et la définition ne doivent jamais être vides.", "Attention");
                     await msgDialog.ShowAsync();
                 }
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
-                await msgDialog.ShowAsync(); 
-            }     
+                MessageDialog msgDialog = new MessageDialog(
+                       "Vous n'avez pas choisi votre Username!", "Erreur");
+                await msgDialog.ShowAsync();
+            }
         }
         #endregion
 

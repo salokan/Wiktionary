@@ -93,6 +93,7 @@ namespace Wiktionary.ViewModel
             _navigationService.GoBack();
         }
 
+        #region Modifier Définition Locale
         //On modifie la définition dans la base
         private async void ModificationLocale()
         {
@@ -137,7 +138,10 @@ namespace Wiktionary.ViewModel
                 await msgDialog.ShowAsync();
             }
         }
-
+        #endregion
+ 
+        #region Modifier Définition Roaming
+        //On modifie la définition roaming
         private async void ModificationRoaming()
         {
             await RoamingStorage.Restore<Definitions>();
@@ -181,56 +185,66 @@ namespace Wiktionary.ViewModel
                 await msgDialog.ShowAsync();
             }
         }
+        #endregion
 
-
+        #region Modifier Définition Publique
         //On modifie la définition via le web service
         private async void ModificationPublique()
         {
-            Webservices ws = new Webservices();
-
-            //On vérifie si le mot que l'on va ajouter existe déjà dans la liste
-            bool existeDeja = false;
-
-            if (!MotAModifier.Equals(_motDeBase))
+            if (localSettings.Values["Username"] != null)
             {
-                string response = await ws.GetDefinition(MotAModifier);
-                if (!response.Equals(""))
-                    existeDeja = true;
-            }
+                Webservices ws = new Webservices();
 
-            if (!existeDeja)
-            {
-                //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
-                string response2 = await ws.DeleteDefinition(_motDeBase, localSettings.Values["Username"].ToString());
-                if (response2.Equals("\"Success\""))
+                //On vérifie si le mot que l'on va ajouter existe déjà dans la liste
+                bool existeDeja = false;
+
+                if (!MotAModifier.Equals(_motDeBase))
                 {
-                    string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, localSettings.Values["Username"].ToString());
+                    string response = await ws.GetDefinition(MotAModifier);
+                    if (!response.Equals(""))
+                        existeDeja = true;
+                }
 
-                    if (response3.Equals("\"Success\""))
+                if (!existeDeja)
+                {
+                    //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
+                    string response2 = await ws.DeleteDefinition(_motDeBase, localSettings.Values["Username"].ToString());
+                    if (response2.Equals("\"Success\""))
                     {
-                        MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
-                        await msgDialog.ShowAsync();
+                        string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, localSettings.Values["Username"].ToString());
+
+                        if (response3.Equals("\"Success\""))
+                        {
+                            MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
+                            await msgDialog.ShowAsync();
+                        }
+                        else
+                        {
+                            MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
+                            await msgDialog.ShowAsync();
+                        }
                     }
                     else
                     {
-                        MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
+                        MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
                         await msgDialog.ShowAsync();
                     }
                 }
                 else
                 {
-                    MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
                     await msgDialog.ShowAsync();
-                }
+                }  
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
+                MessageDialog msgDialog = new MessageDialog(
+                       "Vous n'avez pas choisi votre Username!", "Erreur");
                 await msgDialog.ShowAsync();
             }
-
             
         }
+        #endregion
 
         //Récupère le paramètre contenant la définition à modifier
         public void GetParameter(object parameter)

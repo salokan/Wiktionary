@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>ADVANDCED-LAP</Machine>
-    <WindowsUser>Advandced</WindowsUser>
+    <Machine>NICO</Machine>
+    <WindowsUser>Nicolas</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>9430Antoine.Wiktionary</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>69F96D439E91C3417D3F394A3D1341BFBBDD5E99AC34884A69A640FFB57C6D63</RegisteredManifestChecksum>
+    <IntermediateOutputPath>C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\obj\x86\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>4A88169BDF37AF94338F9D39C5D7E28378A7ABEF766F2959478DE83138C83BB2</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>9430Antoine.Wiktionary_1.0.0.0_x86__759a9s1hcy8sp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>9430Antoine.Wiktionary_759a9s1hcy8sp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>9430Antoine.Wiktionary</RegisteredPackageID>
@@ -17,220 +17,220 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-22T15:33:10.751</Modified>
+      <Modified>2015-01-28T22:44:31.493</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.exe">
       <PackagePath>Wiktionary.Windows.exe</PackagePath>
-      <Modified>2015-01-22T15:33:09.459</Modified>
+      <Modified>2015-01-28T22:44:29.936</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.919</Modified>
+      <Modified>2015-01-04T17:07:00.269</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.Extras.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.Extras.dll">
       <PackagePath>GalaSoft.MvvmLight.Extras.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.908</Modified>
+      <Modified>2015-01-04T17:07:00.290</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.Platform.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.Platform.dll">
       <PackagePath>GalaSoft.MvvmLight.Platform.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.913</Modified>
+      <Modified>2015-01-04T17:07:00.312</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Data.Edm.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Data.Edm.dll">
       <PackagePath>Microsoft.Data.Edm.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.523</Modified>
+      <Modified>2015-01-17T17:01:15.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Data.OData.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Data.OData.dll">
       <PackagePath>Microsoft.Data.OData.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.659</Modified>
+      <Modified>2015-01-17T17:01:17.340</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
       <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.478</Modified>
+      <Modified>2015-01-04T17:06:59.921</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\WindowsAzure.Messaging.Managed.0.1.7.9\lib\netcore45\Microsoft.WindowsAzure.Messaging.Managed.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\WindowsAzure.Messaging.Managed.0.1.7.9\lib\netcore45\Microsoft.WindowsAzure.Messaging.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.Messaging.Managed.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.091</Modified>
+      <Modified>2015-01-17T17:01:25.710</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\WindowsAzure.Storage.4.3.0\lib\win8\Microsoft.WindowsAzure.Storage.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\WindowsAzure.Storage.4.3.0\lib\win8\Microsoft.WindowsAzure.Storage.dll">
       <PackagePath>Microsoft.WindowsAzure.Storage.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.135</Modified>
+      <Modified>2015-01-17T17:01:26.124</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\System.Spatial.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\System.Spatial.dll">
       <PackagePath>System.Spatial.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.046</Modified>
+      <Modified>2015-01-17T17:01:23.046</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\Microsoft.Data.Edm.resources.dll">
       <PackagePath>de\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.533</Modified>
+      <Modified>2015-01-17T17:01:14.720</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\Microsoft.Data.Edm.resources.dll">
       <PackagePath>es\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.535</Modified>
+      <Modified>2015-01-17T17:01:14.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\Microsoft.Data.Edm.resources.dll">
       <PackagePath>fr\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.537</Modified>
+      <Modified>2015-01-17T17:01:14.886</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\Microsoft.Data.Edm.resources.dll">
       <PackagePath>it\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.539</Modified>
+      <Modified>2015-01-17T17:01:14.951</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\Microsoft.Data.Edm.resources.dll">
       <PackagePath>ja\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.541</Modified>
+      <Modified>2015-01-17T17:01:15.002</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\Microsoft.Data.Edm.resources.dll">
       <PackagePath>ko\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.543</Modified>
+      <Modified>2015-01-17T17:01:15.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\Microsoft.Data.Edm.resources.dll">
       <PackagePath>ru\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.545</Modified>
+      <Modified>2015-01-17T17:01:15.206</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\Microsoft.Data.Edm.resources.dll">
       <PackagePath>zh-Hans\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.546</Modified>
+      <Modified>2015-01-17T17:01:15.247</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\Microsoft.Data.Edm.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.Edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\Microsoft.Data.Edm.resources.dll">
       <PackagePath>zh-Hant\Microsoft.Data.Edm.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.548</Modified>
+      <Modified>2015-01-17T17:01:15.382</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\Microsoft.Data.OData.resources.dll">
       <PackagePath>de\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.685</Modified>
+      <Modified>2015-01-17T17:01:16.862</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\Microsoft.Data.OData.resources.dll">
       <PackagePath>es\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.688</Modified>
+      <Modified>2015-01-17T17:01:16.934</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\Microsoft.Data.OData.resources.dll">
       <PackagePath>fr\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.690</Modified>
+      <Modified>2015-01-17T17:01:17.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\Microsoft.Data.OData.resources.dll">
       <PackagePath>it\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.692</Modified>
+      <Modified>2015-01-17T17:01:17.132</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\Microsoft.Data.OData.resources.dll">
       <PackagePath>ja\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.694</Modified>
+      <Modified>2015-01-17T17:01:17.225</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\Microsoft.Data.OData.resources.dll">
       <PackagePath>ko\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.696</Modified>
+      <Modified>2015-01-17T17:01:17.297</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\Microsoft.Data.OData.resources.dll">
       <PackagePath>ru\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.698</Modified>
+      <Modified>2015-01-17T17:01:17.422</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\Microsoft.Data.OData.resources.dll">
       <PackagePath>zh-Hans\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.700</Modified>
+      <Modified>2015-01-17T17:01:17.486</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\Microsoft.Data.OData.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\Microsoft.Data.OData.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\Microsoft.Data.OData.resources.dll">
       <PackagePath>zh-Hant\Microsoft.Data.OData.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:37.702</Modified>
+      <Modified>2015-01-17T17:01:17.533</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\de\System.Spatial.resources.dll">
       <PackagePath>de\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.051</Modified>
+      <Modified>2015-01-17T17:01:21.462</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\es\System.Spatial.resources.dll">
       <PackagePath>es\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.052</Modified>
+      <Modified>2015-01-17T17:01:21.619</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\fr\System.Spatial.resources.dll">
       <PackagePath>fr\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.054</Modified>
+      <Modified>2015-01-17T17:01:21.755</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\it\System.Spatial.resources.dll">
       <PackagePath>it\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.056</Modified>
+      <Modified>2015-01-17T17:01:22.087</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ja\System.Spatial.resources.dll">
       <PackagePath>ja\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.058</Modified>
+      <Modified>2015-01-17T17:01:22.132</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ko\System.Spatial.resources.dll">
       <PackagePath>ko\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.059</Modified>
+      <Modified>2015-01-17T17:01:22.231</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\ru\System.Spatial.resources.dll">
       <PackagePath>ru\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.061</Modified>
+      <Modified>2015-01-17T17:01:22.650</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hans\System.Spatial.resources.dll">
       <PackagePath>zh-Hans\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.063</Modified>
+      <Modified>2015-01-17T17:01:23.369</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\System.Spatial.resources.dll">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\packages\System.Spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\zh-Hant\System.Spatial.resources.dll">
       <PackagePath>zh-Hant\System.Spatial.resources.dll</PackagePath>
-      <Modified>2015-01-22T13:57:38.065</Modified>
+      <Modified>2015-01-17T17:01:24.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLite.WinRT81\3.8.7.4\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
-      <Modified>2015-01-08T09:41:43.377</Modified>
+      <Modified>2015-01-07T19:50:19.526</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-22T13:57:36.148</Modified>
+      <Modified>2014-03-14T09:55:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-22T13:57:36.149</Modified>
+      <Modified>2014-03-14T09:55:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-22T13:57:36.151</Modified>
+      <Modified>2014-03-14T09:55:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-01-22T13:57:36.152</Modified>
+      <Modified>2014-03-14T09:55:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.575</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\AjouterDefinitions.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\AjouterDefinitions.xbf">
       <PackagePath>Views\AjouterDefinitions.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.576</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ListeDefinitions.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ListeDefinitions.xbf">
       <PackagePath>Views\ListeDefinitions.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.576</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.577</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ModifierDefinitions.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\ModifierDefinitions.xbf">
       <PackagePath>Views\ModifierDefinitions.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.577</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\Parametrer.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\Parametrer.xbf">
       <PackagePath>Views\Parametrer.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T22:27:16.279</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\RechercherDefinition.xbf">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Views\RechercherDefinition.xbf">
       <PackagePath>Views\RechercherDefinition.xbf</PackagePath>
-      <Modified>2015-01-22T13:58:10.276</Modified>
+      <Modified>2015-01-28T21:52:57.579</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\Wiktionary.Windows.xr.xml">
       <PackagePath>Wiktionary.Windows.xr.xml</PackagePath>
-      <Modified>2015-01-22T13:57:36.824</Modified>
+      <Modified>2015-01-28T22:27:16.270</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Advandced\Source\Repos\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Wiktionary\Wiktionary\Wiktionary.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-01-22T15:33:10.605</Modified>
+      <Modified>2015-01-28T22:38:56.497</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

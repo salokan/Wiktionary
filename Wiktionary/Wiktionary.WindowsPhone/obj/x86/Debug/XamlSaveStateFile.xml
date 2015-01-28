@@ -1,15 +1,15 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\wiktionary\wiktionary.windowsphone\obj\x86\debug\intermediatexaml\wiktionary.windowsphone.exe" HashGuid="b589cdff-1f9c-afb7-b3aa-0c0947748086" />
+    <LocalAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\wiktionary\wiktionary.windowsphone\obj\x86\debug\intermediatexaml\wiktionary.windowsphone.exe" HashGuid="b81320b9-7a41-cf4e-0ebd-dfb50b3d42d4" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.dll" HashGuid="da07be64-1093-25cd-c992-377d44b6dd02" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.extras.dll" HashGuid="28bb2089-c7a4-73bb-7a72-1ea8b02698b0" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.platform.dll" HashGuid="54c1f1ed-b921-337f-8ad6-f2d8c553df06" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\microsoft.data.edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\microsoft.data.edm.dll" HashGuid="652859ac-63b5-9ab0-7a6b-0cb8dfcd265f" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\microsoft.data.odata.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\microsoft.data.odata.dll" HashGuid="4e84b0db-d22a-61af-6343-dd7cc7f44046" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\windowsazure.messaging.managed.0.1.7.9\lib\wpa81\microsoft.windowsazure.messaging.managed.dll" HashGuid="a6c77c87-a1d1-2c9f-340a-0958f7d05449" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\windowsazure.storage.4.3.0\lib\wpa\microsoft.windowsazure.storage.dll" HashGuid="69d1254a-41d8-4cd8-9ab3-c7714bab061b" />
-    <ReferenceAssembly PathName="c:\users\advandced\source\repos\wiktionary\packages\system.spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\system.spatial.dll" HashGuid="4e779b7f-3e1d-55d1-cac0-694ae2344f0d" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.dll" HashGuid="da07be64-1093-25cd-c992-377d44b6dd02" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.extras.dll" HashGuid="28bb2089-c7a4-73bb-7a72-1ea8b02698b0" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.platform.dll" HashGuid="54c1f1ed-b921-337f-8ad6-f2d8c553df06" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\microsoft.data.edm.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\microsoft.data.edm.dll" HashGuid="652859ac-63b5-9ab0-7a6b-0cb8dfcd265f" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\microsoft.data.odata.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\microsoft.data.odata.dll" HashGuid="4e84b0db-d22a-61af-6343-dd7cc7f44046" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\windowsazure.messaging.managed.0.1.7.9\lib\wpa81\microsoft.windowsazure.messaging.managed.dll" HashGuid="a6c77c87-a1d1-2c9f-340a-0958f7d05449" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\windowsazure.storage.4.3.0\lib\wpa\microsoft.windowsazure.storage.dll" HashGuid="69d1254a-41d8-4cd8-9ab3-c7714bab061b" />
+    <ReferenceAssembly PathName="c:\users\nicolas\documents\visual studio 2013\projects\wiktionary\packages\system.spatial.5.6.2\lib\portable-net40+sl5+wp8+win8+wpa\system.spatial.dll" HashGuid="4e779b7f-3e1d-55d1-cac0-694ae2344f0d" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

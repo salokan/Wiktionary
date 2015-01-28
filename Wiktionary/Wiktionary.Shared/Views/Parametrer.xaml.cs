@@ -23,6 +23,6 @@ namespace Wiktionary.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.OnNavigatedTo();
-        }  
+        }
     }
 }
