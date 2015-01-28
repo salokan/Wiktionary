@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -113,7 +114,7 @@ namespace Wiktionary.ViewModel
             if (existeDeja)
             {
                 MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en locale", "Attention");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
             else
             {
@@ -133,19 +134,19 @@ namespace Wiktionary.ViewModel
                 }
 
                 MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en local!", "Félicitation");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
         }
 
         private async void ModificationRoaming()
         {
-            RoamingStorage.Restore<Definitions>();
+            await RoamingStorage.Restore<Definitions>();
             ModDefList(_motDeBase, MotAModifier, DefinitionAModifier);
 
-            RoamingStorage.Save<Definitions>();
+            await RoamingStorage.Save<Definitions>();
         }
 
-        private void ModDefList(string mot, string motAModifie, string definitionModifie)
+        private async void ModDefList(string mot, string motAModifie, string definitionModifie)
         {
             Definitions d = new Definitions();
             bool itemTrouve = false;
@@ -160,7 +161,7 @@ namespace Wiktionary.ViewModel
                     {
                         motExiste = true;
                         MessageDialog msgDialog = new MessageDialog("Le mot " + motAModifie + " possède déjà une définition en locale", "Attention");
-                        msgDialog.ShowAsync();
+                        await msgDialog.ShowAsync();
                     }
                 }
 
@@ -177,7 +178,7 @@ namespace Wiktionary.ViewModel
                 RoamingStorage.Data.Remove(d);
                 RoamingStorage.Data.Add(new Definitions { Mot = motAModifie, Definition = definitionModifie, TypeDefinition = "roaming" });
                 MessageDialog msgDialog = new MessageDialog("Vous avez bien modifié " + MotAModifier + " - " + _definition.TypeDefinition + " : " + DefinitionAModifier, "Modification réussie");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
         }
 
@@ -208,24 +209,24 @@ namespace Wiktionary.ViewModel
                     if (response3.Equals("\"Success\""))
                     {
                         MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
-                        msgDialog.ShowAsync();
+                        await msgDialog.ShowAsync();
                     }
                     else
                     {
                         MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
-                        msgDialog.ShowAsync();
+                        await msgDialog.ShowAsync();
                     }
                 }
                 else
                 {
                     MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
             }
             else
             {
                 MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }
 
             

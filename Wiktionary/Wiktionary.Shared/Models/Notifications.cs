@@ -40,7 +40,7 @@ namespace Wiktionary.Models
                 definition = jsonObject.GetNamedString("Definition");
 
                 MessageDialog msgDialog = new MessageDialog("Le mot ajouté est " + mot + " : " + definition, "Information");
-                msgDialog.ShowAsync();
+                await msgDialog.ShowAsync();
             }  
         }
     }

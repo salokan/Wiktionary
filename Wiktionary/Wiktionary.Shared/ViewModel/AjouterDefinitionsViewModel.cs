@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -85,7 +86,7 @@ namespace Wiktionary.ViewModel
                 if (existeDeja)
                 {
                     MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en locale", "Attention");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
                 else
                 {
@@ -97,13 +98,13 @@ namespace Wiktionary.ViewModel
                     await connection.InsertAsync(definitionInsert);
 
                     MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en local!", "Félicitation");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
             }
             else
             {
                 MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
-                msgDialog.ShowAsync(); 
+                await msgDialog.ShowAsync(); 
             }   
         }
         #endregion
@@ -123,7 +124,7 @@ namespace Wiktionary.ViewModel
                     {
                         motExiste = true;
                         MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en roaming", "Attention");
-                        msgDialog.ShowAsync();
+                        await msgDialog.ShowAsync();
                     }
                 }
 
@@ -131,7 +132,7 @@ namespace Wiktionary.ViewModel
                 {
                     RoamingStorage.Data.Add(new Definitions { Mot = _mot, Definition = _definition, TypeDefinition = "roaming" });
                     MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en roaming!", "Félicitation");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
 
                 await RoamingStorage.Save<Definitions>();
@@ -139,7 +140,7 @@ namespace Wiktionary.ViewModel
             else
             {
                 MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
-                msgDialog.ShowAsync(); 
+                await msgDialog.ShowAsync(); 
             }  
         }
         #endregion
@@ -156,18 +157,18 @@ namespace Wiktionary.ViewModel
                 if (response.Equals("\"Success\""))
                 {
                     MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " : " + _definition + " a été ajouté avec succès en publique!", "Félicitation");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
                 else
                 {
                     MessageDialog msgDialog = new MessageDialog("Le mot " + _mot + " possède déjà une définition en publique", "Attention");
-                    msgDialog.ShowAsync();
+                    await msgDialog.ShowAsync();
                 }
             }
             else
             {
                 MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
-                msgDialog.ShowAsync(); 
+                await msgDialog.ShowAsync(); 
             }     
         }
         #endregion

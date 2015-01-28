@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -43,11 +44,11 @@ namespace Wiktionary.ViewModel
         }
 
         //Ajoute ou modifie le username
-        private void ModifierUsername()
+        private async void ModifierUsername()
         {
             localSettings.Values["Username"] = _username;
             MessageDialog msgDialog = new MessageDialog("Le username " + _username + " a été modifié avec succès!", "Félicitation");
-            msgDialog.ShowAsync();
+            await msgDialog.ShowAsync();
         }
 
         //Naviguer sur la page précédente
