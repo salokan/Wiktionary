@@ -104,6 +104,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AjouterDefinitions.xaml.cs">
+      <DependentUpon>AjouterDefinitions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListeDefinitions.xaml.cs">
+      <DependentUpon>ListeDefinitions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifierDefinitions.xaml.cs">
+      <DependentUpon>ModifierDefinitions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrer.xaml.cs">
+      <DependentUpon>Parametrer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RechercherDefinition.xaml.cs">
+      <DependentUpon>RechercherDefinition.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -153,6 +171,32 @@
     <SDKReference Include="SQLite.WinRT81, Version=3.8.7.4">
       <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AjouterDefinitions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ListeDefinitions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifierDefinitions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Parametrer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RechercherDefinition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

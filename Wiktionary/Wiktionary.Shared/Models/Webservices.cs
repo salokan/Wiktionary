@@ -15,6 +15,7 @@ namespace Wiktionary.Models
             InitWebservice();
         }
 
+        //On initialise le web service
         private void InitWebservice()
         {
             HttpBaseProtocolFilter rootFilter = new HttpBaseProtocolFilter();
@@ -42,15 +43,11 @@ namespace Wiktionary.Models
             Uri resourceUri;
             if (!Uri.TryCreate(adresse.Trim(), UriKind.Absolute, out resourceUri))
             {
-/*
-                definitions = "Invalid URI, please re-enter a valid URI";
-*/
+
             }
             if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
             {
-/*
-                definitions = "Only 'http' and 'https' schemes supported. Please re-enter URI";
-*/
+
             }
 
             string responseBodyAsText;
@@ -65,11 +62,6 @@ namespace Wiktionary.Models
             }
             catch (Exception)
             {
-                // Need to convert int HResult to hex string
-/*
-                definitions = "Error = " + ex.HResult.ToString("X") +
-                    "  Message: " + ex.Message;
-*/
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -108,7 +100,6 @@ namespace Wiktionary.Models
             }
             catch (Exception)
             {
-                // Need to convert int HResult to hex string
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -147,7 +138,6 @@ namespace Wiktionary.Models
             }
             catch (Exception)
             {
-                // Need to convert int HResult to hex string
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;
@@ -186,7 +176,6 @@ namespace Wiktionary.Models
             }
             catch (Exception)
             {
-                // Need to convert int HResult to hex string
                 responseBodyAsText = "";
             }
             definitions = responseBodyAsText;

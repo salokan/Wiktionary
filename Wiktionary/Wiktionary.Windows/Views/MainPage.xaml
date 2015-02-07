@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Wiktionary.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wiktionary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Grid>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="549,132,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=RechercherDefinition}"/>
+        <Button Content="Liste des définitions" HorizontalAlignment="Left" Margin="549,288,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=ListeDefinitions}"/>
+        <Button Content="Ajouter une définition" HorizontalAlignment="Left" Margin="549,461,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=AjouterDefinitions}"/>
+        <Button Content="Paramètres" HorizontalAlignment="Left" Margin="549,625,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=Parametrer}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="568,35,0,0" TextWrapping="Wrap" Text="Wiktionary" VerticalAlignment="Top" Height="46" Width="185" FontSize="36"/>
+    </Grid>
+</Page>

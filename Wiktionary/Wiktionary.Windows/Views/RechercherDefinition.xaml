@@ -9,11 +9,11 @@
     DataContext="{Binding RechercherDefinition, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="0,28,0,0" TextWrapping="Wrap" Text="Rechercher une définition" VerticalAlignment="Top" Height="45" Width="400" FontSize="34"/>
-        <TextBlock HorizontalAlignment="Left" Margin="38,78,0,0" TextWrapping="Wrap" Text="Saisir le mot dont vous souhaitez obtenir la définition" VerticalAlignment="Top" Height="35" Width="352" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="38,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Text="{Binding Path=MotRecherche, Mode=TwoWay}"/>
-        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="134,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.095" Width="134" Command="{Binding Path=Rechercher}" FontSize="14.667"/>
-        <StackPanel HorizontalAlignment="Left" Height="305" Margin="23,239,0,0" VerticalAlignment="Top" Width="353">
+        <TextBlock HorizontalAlignment="Left" Margin="524,28,0,0" TextWrapping="Wrap" Text="Rechercher une définition" VerticalAlignment="Top" Height="45" Width="400" FontSize="34"/>
+        <TextBlock HorizontalAlignment="Left" Margin="545,78,0,0" TextWrapping="Wrap" Text="Saisir le mot dont vous souhaitez obtenir la définition" VerticalAlignment="Top" Height="35" Width="352" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="545,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Text="{Binding Path=MotRecherche, Mode=TwoWay}"/>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="658,190,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.095" Width="134" Command="{Binding Path=Rechercher}" FontSize="14.667"/>
+        <StackPanel HorizontalAlignment="Left" Height="305" Margin="362,263,0,0" VerticalAlignment="Top" Width="760">
             <ListView Height="304" ItemsSource="{Binding Path=DefinitionsRecherchees}" SelectedItem="{Binding Path=MotSelectionne, Mode=TwoWay}" Margin="0,0,0.333,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -26,8 +26,8 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="23,558,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
-        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="157,558,0,0" VerticalAlignment="Top" Command="{Binding Path=Supprimer}"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="281,558,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
+        <Button Content="Voir" HorizontalAlignment="Left" Margin="542,612,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="706,612,0,0" VerticalAlignment="Top" Command="{Binding Path=Supprimer}"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="947,612,0,0" VerticalAlignment="Top" Command="{Binding Path=Retour}"/>
     </Grid>
 </Page>

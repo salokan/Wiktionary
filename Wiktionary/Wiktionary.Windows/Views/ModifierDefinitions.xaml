@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Wiktionary.Views.ModifierDefinitions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wiktionary.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding ModifierDefinitions, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="482,28,0,0" TextWrapping="Wrap" Text="Modifier une définition" VerticalAlignment="Top" Height="48" Width="375" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="611,103,0,0" TextWrapping="Wrap" Text="Modifier le mot et/ou sa définition" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBlock HorizontalAlignment="Left" Margin="482,183,0,0" TextWrapping="Wrap" Text="Mot" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="683,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Text="{Binding Path=MotAModifier, Mode=TwoWay}" MaxLength="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="482,282,0,0" TextWrapping="Wrap" Text="Définition" VerticalAlignment="Top" FontSize="14.667"/>
+        <TextBox HorizontalAlignment="Left" Margin="683,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="183" Width="265" Text="{Binding Path=DefinitionAModifier, Mode=TwoWay}" MaxLength="1000"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="479,521,0,0" VerticalAlignment="Top" Command="{Binding Path=Modifier}" FontSize="14.667"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="872,521,0,0" VerticalAlignment="Top"  Command="{Binding Path=Retour}" FontSize="14.667"/>
+    </Grid>
+</Page>

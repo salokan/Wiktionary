@@ -10,11 +10,11 @@
     DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid>
-        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="103,115,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=RechercherDefinition}"/>
-        <Button Content="Liste des définitions" HorizontalAlignment="Left" Margin="103,255,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=ListeDefinitions}"/>
-        <Button Content="Ajouter une définition" HorizontalAlignment="Left" Margin="103,390,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=AjouterDefinitions}"/>
-        <Button Content="Paramètres" HorizontalAlignment="Left" Margin="103,523,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=Parametrer}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="121,35,0,0" TextWrapping="Wrap" Text="Wiktionary" VerticalAlignment="Top" Height="46" Width="185" FontSize="36"/>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="549,132,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=RechercherDefinition}"/>
+        <Button Content="Liste des définitions" HorizontalAlignment="Left" Margin="549,288,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=ListeDefinitions}"/>
+        <Button Content="Ajouter une définition" HorizontalAlignment="Left" Margin="549,461,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=AjouterDefinitions}"/>
+        <Button Content="Paramètres" HorizontalAlignment="Left" Margin="549,625,0,0" VerticalAlignment="Top" Height="117" Width="219" Command="{Binding Path=Parametrer}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="568,35,0,0" TextWrapping="Wrap" Text="Wiktionary" VerticalAlignment="Top" Height="46" Width="185" FontSize="36"/>
     </Grid>
 </Page>
 
