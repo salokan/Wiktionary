@@ -15,9 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Controllers\DesignNavigationService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controllers\INavigationService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controllers\NavigationService .cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Navigation\DesignNavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Navigation\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Navigation\NavigationService .cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Definitions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DefinitionsPubliques.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DefinitionsTable.cs" />
