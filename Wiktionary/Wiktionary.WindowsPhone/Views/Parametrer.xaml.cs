@@ -2,7 +2,7 @@
 
 // Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
 using Windows.UI.Xaml.Navigation;
-using Wiktionary.ViewModel;
+using Wiktionary.Navigation;
 
 namespace Wiktionary.Views
 {

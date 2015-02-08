@@ -7,8 +7,8 @@ using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SQLite;
-using Wiktionary.Controllers;
 using Wiktionary.Models;
+using Wiktionary.Navigation;
 using Wiktionary.Views;
 
 namespace Wiktionary.ViewModel
@@ -160,54 +160,70 @@ namespace Wiktionary.ViewModel
         private async void SupprimerDefinition()
         {
             if (_motSelectionne != null)
-            {
-                MessageDialog msgDialog =
-                    new MessageDialog("Etes-vous sûr de vouloir supprimer la définition sélectionnée?",
-                        "Demande de confirmation");
-                msgDialog.Commands.Add(new UICommand("Oui", command =>
-                                                            {
-                                                                Definitions definitionASupprimer = new Definitions();
-                                                                bool aSupprimer = false;
+            { 
+                //On vérifie que l'username n'est pas vide avant d'ajouter un nouveau mot en public
+                if (_motSelectionne.TypeDefinition.Equals("publique") && localSettings.Values["Username"] == null)
+                {
+                    MessageDialog msgDialog2 = new MessageDialog(
+                        "Vous n'avez pas choisi votre Username!", "Erreur");
+                    await msgDialog2.ShowAsync();
+                }
+                else
+                {
+                    MessageDialog msgDialog =
+                        new MessageDialog("Etes-vous sûr de vouloir supprimer la définition sélectionnée?",
+                            "Demande de confirmation");
+                    msgDialog.Commands.Add(new UICommand("Oui", command =>
+                                                                {
+                                                                    Definitions definitionASupprimer = new Definitions();
+                                                                    bool aSupprimer = false;
 
-                                                                foreach (Definitions d in toutesDefinitions)
-                                                                    if (d.Mot.Equals(_motSelectionne.Mot) &&
-                                                                        d.Definition.Equals(_motSelectionne.Definition) &&
-                                                                        d.TypeDefinition.Equals(
-                                                                            _motSelectionne.TypeDefinition))
+                                                                    foreach (Definitions d in toutesDefinitions)
+                                                                        if (d.Mot.Equals(_motSelectionne.Mot) &&
+                                                                            d.Definition.Equals(
+                                                                                _motSelectionne.Definition) &&
+                                                                            d.TypeDefinition.Equals(
+                                                                                _motSelectionne.TypeDefinition))
+                                                                        {
+                                                                            definitionASupprimer = d;
+                                                                            aSupprimer = true;
+                                                                        }
+
+                                                                    if (aSupprimer &&
+                                                                        !definitionASupprimer.TypeDefinition.Equals(
+                                                                            "publique"))
                                                                     {
-                                                                        definitionASupprimer = d;
-                                                                        aSupprimer = true;
+                                                                        toutesDefinitions.Remove(definitionASupprimer);
+                                                                        definitionsRecherchees.Remove(
+                                                                            definitionASupprimer);
                                                                     }
 
-                                                                if (aSupprimer && !definitionASupprimer.TypeDefinition.Equals("publique"))
-                                                                {
-                                                                    toutesDefinitions.Remove(definitionASupprimer);
-                                                                    definitionsRecherchees.Remove(definitionASupprimer);
-                                                                }
+                                                                    if (
+                                                                        definitionASupprimer.TypeDefinition.Equals(
+                                                                            "locale"))
+                                                                    {
+                                                                        SupprimerLocale(definitionASupprimer);
+                                                                    }
+                                                                    else if (
+                                                                        definitionASupprimer.TypeDefinition.Equals(
+                                                                            "roaming"))
+                                                                    {
+                                                                        SupprimerRoaming(definitionASupprimer);
+                                                                    }
+                                                                    else if (definitionASupprimer.TypeDefinition.Equals(
+                                                                        "publique"))
+                                                                    {
+                                                                        SupprimerPublique(definitionASupprimer);
+                                                                    }
 
-                                                                if (definitionASupprimer.TypeDefinition.Equals("locale"))
+                                                                    DefinitionsRecherchees = definitionsRecherchees;
+                                                                }));
+                    msgDialog.Commands.Add(new UICommand("Non", command =>
                                                                 {
-                                                                    SupprimerLocale(definitionASupprimer);
-                                                                }
-                                                                else if (
-                                                                    definitionASupprimer.TypeDefinition.Equals(
-                                                                        "roaming"))
-                                                                {
-                                                                    SupprimerRoaming(definitionASupprimer);
-                                                                }
-                                                                else if (definitionASupprimer.TypeDefinition.Equals(
-                                                                    "publique"))
-                                                                {
-                                                                    SupprimerPublique(definitionASupprimer);
-                                                                }
 
-                                                                DefinitionsRecherchees = definitionsRecherchees;
-                                                            }));
-                msgDialog.Commands.Add(new UICommand("Non", command =>
-                {
-
-                }));
-                await msgDialog.ShowAsync();
+                                                                }));
+                    await msgDialog.ShowAsync();
+                }
             }
         }
         
@@ -260,14 +276,20 @@ namespace Wiktionary.ViewModel
 
                 DefinitionsRecherchees = definitionsRecherchees;
 
-                MessageDialog msgDialog = new MessageDialog("Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en publique!", "Félicitation");
+                MessageDialog msgDialog =
+                    new MessageDialog(
+                        "Le mot " + def.Mot + " : " + def.Definition + " a été supprimé avec succès en publique!",
+                        "Félicitation");
                 await msgDialog.ShowAsync();
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition + " donc vous ne pouvez pas le supprimer!", "Attention");
+                MessageDialog msgDialog =
+                    new MessageDialog(
+                        "Vous n'avez pas ajouter le mot " + def.Mot + " : " + def.Definition +
+                        " donc vous ne pouvez pas le supprimer!", "Attention");
                 await msgDialog.ShowAsync();
-            } 
+            }  
         }
         #endregion
 

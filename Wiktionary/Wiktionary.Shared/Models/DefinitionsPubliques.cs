@@ -1,11 +1,13 @@
 ﻿using System;
 using Windows.Data.Json;
 
+//Ce fichier permet de faire la liaison avec le webservice
+
 namespace Wiktionary.Models
 {
     public class DefinitionsPubliques
     {
-         private string _word;
+        private string _word;
         private string _definition;
 
         public DefinitionsPubliques()

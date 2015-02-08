@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace Wiktionary.Controllers
+namespace Wiktionary.Navigation
 {
     public class DesignNavigationService : INavigationService
     {
-        // This class doesn't perform navigation, in order
-        // to avoid issues in the designer at design time.
-
         public void Navigate(Type sourcePageType)
         {
         }

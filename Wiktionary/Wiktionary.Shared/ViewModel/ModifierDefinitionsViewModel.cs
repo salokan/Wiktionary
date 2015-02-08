@@ -4,8 +4,8 @@ using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SQLite;
-using Wiktionary.Controllers;
 using Wiktionary.Models;
+using Wiktionary.Navigation;
 
 namespace Wiktionary.ViewModel
 {
@@ -97,46 +97,54 @@ namespace Wiktionary.ViewModel
         //On modifie la définition dans la base
         private async void ModificationLocale()
         {
-            bool existeDeja = false;
-            int id = 0;
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
-
-            if (!MotAModifier.Equals(_motDeBase))
+            if (MotAModifier != null && DefinitionAModifier != null && !MotAModifier.Equals("") && !DefinitionAModifier.Equals(""))
             {
-                var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { MotAModifier });
-                foreach (var item in result)
+                bool existeDeja = false;
+                int id = 0;
+                SQLiteAsyncConnection connection = new SQLiteAsyncConnection("Definitions.db");
+
+                if (!MotAModifier.Equals(_motDeBase))
                 {
-                    if (item.Mot.Equals(MotAModifier))
-                        existeDeja = true;
+                    var result = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { MotAModifier });
+                    foreach (var item in result)
+                    {
+                        if (item.Mot.Equals(MotAModifier))
+                            existeDeja = true;
+                    }
                 }
-            }
             
 
-            if (existeDeja)
-            {
-                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en locale", "Attention");
-                await msgDialog.ShowAsync();
+                if (existeDeja)
+                {
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en locale", "Attention");
+                    await msgDialog.ShowAsync();
+                }
+                else
+                {
+                    var result2 = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _motDeBase });
+                    foreach (var item in result2)
+                    {
+                        id = item.id;
+                    }
+
+                    var definitionUpdate = await connection.Table<DefinitionsTable>().Where(x => x.id.Equals(id)).FirstOrDefaultAsync();
+
+                    if (definitionUpdate != null)
+                    {
+                        definitionUpdate.Mot = MotAModifier;
+                        definitionUpdate.Definition = DefinitionAModifier;
+                        await connection.UpdateAsync(definitionUpdate);
+                    }
+
+                    MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en local!", "Félicitation");
+                    await msgDialog.ShowAsync();
+                }
             }
             else
             {
-                var result2 = await connection.QueryAsync<DefinitionsTable>("Select * FROM Definitions WHERE Mot = ?", new object[] { _motDeBase });
-                foreach (var item in result2)
-                {
-                    id = item.id;
-                }
-
-                var definitionUpdate = await connection.Table<DefinitionsTable>().Where(x => x.id.Equals(id)).FirstOrDefaultAsync();
-
-                if (definitionUpdate != null)
-                {
-                    definitionUpdate.Mot = MotAModifier;
-                    definitionUpdate.Definition = DefinitionAModifier;
-                    await connection.UpdateAsync(definitionUpdate);
-                }
-
-                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en local!", "Félicitation");
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
                 await msgDialog.ShowAsync();
-            }
+            } 
         }
         #endregion
  
@@ -144,10 +152,18 @@ namespace Wiktionary.ViewModel
         //On modifie la définition roaming
         private async void ModificationRoaming()
         {
-            await RoamingStorage.Restore<Definitions>();
-            ModDefList(_motDeBase, MotAModifier, DefinitionAModifier);
+            if (MotAModifier != null && DefinitionAModifier != null && !MotAModifier.Equals("") && !DefinitionAModifier.Equals(""))
+            {
+                await RoamingStorage.Restore<Definitions>();
+                ModDefList(_motDeBase, MotAModifier, DefinitionAModifier);
 
-            await RoamingStorage.Save<Definitions>();
+                await RoamingStorage.Save<Definitions>();
+            }
+            else
+            {
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
+                await msgDialog.ShowAsync();
+            }
         }
 
         private async void ModDefList(string mot, string motAModifie, string definitionModifie)
@@ -190,59 +206,66 @@ namespace Wiktionary.ViewModel
         #region Modifier Définition Publique
         //On modifie la définition via le web service
         private async void ModificationPublique()
-        {
-            if (localSettings.Values["Username"] != null)
+        { 
+            if (MotAModifier != null && DefinitionAModifier != null && !MotAModifier.Equals("") && !DefinitionAModifier.Equals(""))
             {
-                Webservices ws = new Webservices();
-
-                //On vérifie si le mot que l'on va ajouter existe déjà dans la liste
-                bool existeDeja = false;
-
-                if (!MotAModifier.Equals(_motDeBase))
+                if (localSettings.Values["Username"] != null)
                 {
-                    string response = await ws.GetDefinition(MotAModifier);
-                    if (!response.Equals(""))
-                        existeDeja = true;
-                }
+                    Webservices ws = new Webservices();
 
-                if (!existeDeja)
-                {
-                    //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
-                    string response2 = await ws.DeleteDefinition(_motDeBase, localSettings.Values["Username"].ToString());
-                    if (response2.Equals("\"Success\""))
+                    //On vérifie si le mot que l'on va ajouter existe déjà dans la liste
+                    bool existeDeja = false;
+
+                    if (!MotAModifier.Equals(_motDeBase))
                     {
-                        string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, localSettings.Values["Username"].ToString());
+                        string response = await ws.GetDefinition(MotAModifier);
+                        if (!response.Equals(""))
+                            existeDeja = true;
+                    }
 
-                        if (response3.Equals("\"Success\""))
+                    if (!existeDeja)
+                    {
+                        //Pour modifier une définition, on la supprime puis on ajoute la nouvelle
+                        string response2 = await ws.DeleteDefinition(_motDeBase, localSettings.Values["Username"].ToString());
+                        if (response2.Equals("\"Success\""))
                         {
-                            MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
-                            await msgDialog.ShowAsync();
+                            string response3 = await ws.AddDefinition(MotAModifier, DefinitionAModifier, localSettings.Values["Username"].ToString());
+
+                            if (response3.Equals("\"Success\""))
+                            {
+                                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " : " + DefinitionAModifier + " a été modifié avec succès en publique!", "Félicitation");
+                                await msgDialog.ShowAsync();
+                            }
+                            else
+                            {
+                                MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
+                                await msgDialog.ShowAsync();
+                            }
                         }
                         else
                         {
-                            MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique, ce qui l'a supprimé", "Attention");
+                            MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
                             await msgDialog.ShowAsync();
                         }
                     }
                     else
                     {
-                        MessageDialog msgDialog = new MessageDialog("Vous n'avez pas ajouter le mot " + _motDeBase + " donc vous ne pouvez pas le modifier!", "Attention");
+                        MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
                         await msgDialog.ShowAsync();
-                    }
+                    }  
                 }
                 else
                 {
-                    MessageDialog msgDialog = new MessageDialog("Le mot " + MotAModifier + " possède déjà une définition en publique", "Attention");
+                    MessageDialog msgDialog = new MessageDialog(
+                           "Vous n'avez pas choisi votre Username!", "Erreur");
                     await msgDialog.ShowAsync();
-                }  
+                }
             }
             else
             {
-                MessageDialog msgDialog = new MessageDialog(
-                       "Vous n'avez pas choisi votre Username!", "Erreur");
+                MessageDialog msgDialog = new MessageDialog("Le mot et la définition ne doivent jamais être vides.", "Attention");
                 await msgDialog.ShowAsync();
             }
-            
         }
         #endregion
 
@@ -266,19 +289,5 @@ namespace Wiktionary.ViewModel
         {
 
         }
-    }
-
-
-    //Interfaces de navigation
-    public interface IView
-    {
-        IViewModel ViewModel { get; }
-    }
-
-    public interface IViewModel
-    {
-        void GetParameter(object parameter);
-
-        void OnNavigatedTo();
     }
 }

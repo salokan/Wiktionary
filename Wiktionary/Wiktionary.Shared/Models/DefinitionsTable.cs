@@ -1,5 +1,7 @@
 ﻿using SQLite;
 
+//Ce fichier permet de faire la liaison avec la base sqlite
+
 namespace Wiktionary.Models
 {
     [Table("Definitions")]

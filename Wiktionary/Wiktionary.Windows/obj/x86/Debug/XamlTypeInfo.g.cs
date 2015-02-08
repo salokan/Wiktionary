@@ -139,7 +139,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
             _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[13] = "Wiktionary.Views.ListeDefinitions";
-            _typeNameTable[14] = "Wiktionary.ViewModel.IViewModel";
+            _typeNameTable[14] = "Wiktionary.Navigation.IViewModel";
             _typeNameTable[15] = "Wiktionary.Views.MainPage";
             _typeNameTable[16] = "Wiktionary.Views.ModifierDefinitions";
             _typeNameTable[17] = "Wiktionary.Views.Parametrer";
@@ -160,7 +160,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
             _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[13] = typeof(global::Wiktionary.Views.ListeDefinitions);
-            _typeTable[14] = typeof(global::Wiktionary.ViewModel.IViewModel);
+            _typeTable[14] = typeof(global::Wiktionary.Navigation.IViewModel);
             _typeTable[15] = typeof(global::Wiktionary.Views.MainPage);
             _typeTable[16] = typeof(global::Wiktionary.Views.ModifierDefinitions);
             _typeTable[17] = typeof(global::Wiktionary.Views.Parametrer);
@@ -311,7 +311,7 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 14:   //  Wiktionary.ViewModel.IViewModel
+            case 14:   //  Wiktionary.Navigation.IViewModel
                 userType = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -449,25 +449,25 @@ namespace Wiktionary.Wiktionary_Windows_XamlTypeInfo
                 break;
             case "Wiktionary.Views.ListeDefinitions.ViewModel":
                 userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.ListeDefinitions");
-                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
+                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.Navigation.IViewModel");
                 xamlMember.Getter = get_6_ListeDefinitions_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Wiktionary.Views.ModifierDefinitions.ViewModel":
                 userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.ModifierDefinitions");
-                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
+                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.Navigation.IViewModel");
                 xamlMember.Getter = get_7_ModifierDefinitions_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Wiktionary.Views.Parametrer.ViewModel":
                 userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.Parametrer");
-                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
+                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.Navigation.IViewModel");
                 xamlMember.Getter = get_8_Parametrer_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Wiktionary.Views.RechercherDefinition.ViewModel":
                 userType = (global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Wiktionary.Views.RechercherDefinition");
-                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.ViewModel.IViewModel");
+                xamlMember = new global::Wiktionary.Wiktionary_Windows_XamlTypeInfo.XamlMember(this, "ViewModel", "Wiktionary.Navigation.IViewModel");
                 xamlMember.Getter = get_9_RechercherDefinition_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;

@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using Wiktionary.Controllers;
+using Wiktionary.Navigation;
 
 namespace Wiktionary.ViewModel
 {

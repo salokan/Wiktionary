@@ -2,7 +2,6 @@
     x:Class="Wiktionary.Views.AjouterDefinitions"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Wiktionary.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -12,7 +11,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="472,39,0,0" TextWrapping="Wrap" Text="Ajouter une définition" VerticalAlignment="Top" Height="46" Width="352" FontSize="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="545,118,0,0" TextWrapping="Wrap" Text="Veuillez saisir le mot et sa définition" VerticalAlignment="Top" FontSize="14.667"/>
         <TextBlock HorizontalAlignment="Left" Margin="411,171,0,0" TextWrapping="Wrap" Text="Mot :" VerticalAlignment="Top" FontSize="14.667"/>
-        <TextBox HorizontalAlignment="Left" Margin="545,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" Text="{Binding Path=Mot, Mode=TwoWay}" MaxLength="15"/>
+        <TextBox HorizontalAlignment="Left" Margin="545,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" Text="{Binding Path=Mot, Mode=TwoWay}" MaxLength="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="411,238,0,0" TextWrapping="Wrap" Text="Définition :" VerticalAlignment="Top" FontSize="14.667"/>
         <TextBox HorizontalAlignment="Left" Margin="545,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="277" Text="{Binding Path=Definition, Mode=TwoWay}" MaxLength="1000"/>
         <Button Content="Ajouter en local" HorizontalAlignment="Left" Margin="422,502,0,0" VerticalAlignment="Top" Command="{Binding Path=Locale}" FontSize="14.667"/>

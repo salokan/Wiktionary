@@ -4,8 +4,8 @@ using Windows.UI.Popups;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SQLite;
-using Wiktionary.Controllers;
 using Wiktionary.Models;
+using Wiktionary.Navigation;
 
 namespace Wiktionary.ViewModel
 {
@@ -149,6 +149,7 @@ namespace Wiktionary.ViewModel
         //Ajouter un définition publique
         private async void AjouterPublique()
         {
+            //On vérifie que l'username n'est pas vide avant d'ajouter un nouveau mot en public
             if (localSettings.Values["Username"] != null)
             {
                 if (_mot != null && _definition != null && !_mot.Equals("") && !_definition.Equals(""))

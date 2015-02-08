@@ -5,6 +5,7 @@ using Windows.Networking.PushNotifications;
 using Windows.UI.Popups;
 using Microsoft.WindowsAzure.Messaging;
 
+//Ce fichier permet d'utiliser le système de notification
 
 namespace Wiktionary.Models
 {
@@ -25,6 +26,7 @@ namespace Wiktionary.Models
             });
         }
 
+        //Permet d'afficher en popup une notification (mot + définition)
         public async void AfficherNotification(string mot)
         {
             string definition;

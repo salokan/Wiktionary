@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Wiktionary.Controllers
+namespace Wiktionary.Navigation
 {
     public class NavigationService : INavigationService
     {

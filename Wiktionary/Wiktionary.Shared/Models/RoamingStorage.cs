@@ -8,7 +8,7 @@ using Windows.Storage.Streams;
 
 namespace Wiktionary.Models
 {
-    class RoamingStorage
+    public class RoamingStorage
     {
         private const string Filename = "roaming.xml";
         private static List<object> _data = new List<object>();
